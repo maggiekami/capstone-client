@@ -1,15 +1,22 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "./Components/Navbar/Navbar";
+import Navbar from "./components/Navbar/Navbar";
+import CartProvider from "./CartContext";
+import Products from "./pages/Products/Products";
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Navbar />
-        <Routes>{/* <Route path="/cart" element={<Cart />} /> */}</Routes>
-      </BrowserRouter>
-      <h1>hello</h1>
-    </div>
+    <CartProvider>
+      <div className="App">
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            {/* jak chce landing page to potem zmien product z / na /products */}
+            {/* <Route path="/" element={<Home />} /> */}
+            <Route path="/" element={<Products />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </CartProvider>
   );
 }
 

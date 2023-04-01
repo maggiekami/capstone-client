@@ -1,21 +1,38 @@
 import { createContext, useState } from "react";
-// import productsArray from (ja potrzebuje liste products z axios get wlozona
-//     w constant)
 
-export const cartContext = createContext({
+export const CartContext = createContext({
   items: [],
   getItemQuantity: () => {},
   addItemToCart: () => {},
   removeItemFromCart: () => {},
-  clearCart: () => {},
+  removeAllFromCart: () => {},
   getTotal: () => {},
 });
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
+  //   const [cartItems, setCartItems] = useState(() => {
+  //     const savedCartItems = localStorage.getItem("cartItems");
+  //     if (savedCartItems) {
+  //       return JSON.parse(savedCartItems);
+  //     }
+  //     return [];
+  //   });
+
+  //   useEffect(() => {
+  //     localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  //   }, [cartItems]);
+
+  const getItemDetails = (id) => {
+    let itemDetails = cartItems.find((item) => item.id === id);
+    if (itemDetails == undefined) {
+      return undefined;
+    }
+    return itemDetails;
+  };
 
   const getItemQuantity = (id) => {
-    cartItems.find((item) => item.id === id)?.quantity;
+    const quantity = cartItems.find((item) => item.id === id)?.quantity;
     if (quantity === undefined) {
       return 0;
     }
@@ -24,6 +41,50 @@ export function CartProvider({ children }) {
 
   const addItemToCart = (id) => {
     const quantity = getItemQuantity(id);
+    if (quantity === 0) {
+      setCartItems([
+        ...cartItems,
+        {
+          id: id,
+          quantity: 1,
+        },
+      ]);
+    } else {
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+        )
+      );
+    }
+  };
+
+  const removeAllFromCart = (id) => {
+    setCartItems((cartItems) =>
+      cartItems.filter((item) => {
+        return item.id != id;
+      })
+    );
+  };
+
+  const removeItemFromCart = (id) => {
+    const quantity = getItemQuantity(id);
+    if (quantity == 1) {
+      removeAllFromCart(id);
+    } else {
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+        )
+      );
+    }
+  };
+
+  const getTotal = () => {
+    let total = 0;
+    cartItems.map((item) => {
+      const itemDetails = getItemDetails(item.id);
+      total += itemDetails.price * item.quantity;
+    });
   };
 
   const contextValue = {
@@ -31,11 +92,13 @@ export function CartProvider({ children }) {
     getItemQuantity,
     addItemToCart,
     removeItemFromCart,
-    clearCart,
+    removeAllFromCart,
     getTotal,
   };
 
   return (
-    <cartContext.Provider value={contextValue}>{children}</cartContext.Provider>
+    <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
   );
 }
+
+export default CartProvider;
