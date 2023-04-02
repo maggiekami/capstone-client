@@ -1,7 +1,9 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+import { getItemDetails } from "../src/pages/Products/Products";
 
 export const CartContext = createContext({
   items: [],
+
   getItemQuantity: () => {},
   addItemToCart: () => {},
   removeItemFromCart: () => {},
@@ -10,18 +12,18 @@ export const CartContext = createContext({
 });
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
-  //   const [cartItems, setCartItems] = useState(() => {
-  //     const savedCartItems = localStorage.getItem("cartItems");
-  //     if (savedCartItems) {
-  //       return JSON.parse(savedCartItems);
-  //     }
-  //     return [];
-  //   });
+  //   const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCartItems = localStorage.getItem("cartItems");
+    if (savedCartItems) {
+      return JSON.parse(savedCartItems);
+    }
+    return [];
+  });
 
-  //   useEffect(() => {
-  //     localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  //   }, [cartItems]);
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const getItemDetails = (id) => {
     let itemDetails = cartItems.find((item) => item.id === id);
@@ -61,14 +63,14 @@ export function CartProvider({ children }) {
   const removeAllFromCart = (id) => {
     setCartItems((cartItems) =>
       cartItems.filter((item) => {
-        return item.id != id;
+        return item.id !== id;
       })
     );
   };
 
   const removeItemFromCart = (id) => {
     const quantity = getItemQuantity(id);
-    if (quantity == 1) {
+    if (quantity === 1) {
       removeAllFromCart(id);
     } else {
       setCartItems(
@@ -83,7 +85,7 @@ export function CartProvider({ children }) {
     let total = 0;
     cartItems.map((item) => {
       const itemDetails = getItemDetails(item.id);
-      total += itemDetails.price * item.quantity;
+      return (total += itemDetails.price * item.quantity);
     });
   };
 
