@@ -3,15 +3,14 @@ import { CartContext } from "../../CartContext";
 import { useContext } from "react";
 // import { getItemDetails } from "../../pages/Products/Products";
 
-const CartItem = ({ id }) => {
+const CartItem = ({ item }) => {
   const cart = useContext(CartContext);
 
-  // const itemDetails = cart.fetchItemData(id);
+  const price = cart.getTotal();
 
   return (
-    <>
-      <h4>{id}</h4>
-    </>
+    // <h4>{id}</h4>
+    <h4>{item.name}</h4>
 
     /* <article className="cart__item">
         <img

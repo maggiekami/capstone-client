@@ -8,9 +8,11 @@ const Cart = () => {
   const navigate = useNavigate();
 
   const cart = useContext(CartContext);
+
   const handleCloseModalClick = (e) => {
     navigate("/");
   };
+
   return (
     <section className="cart">
       <header>
@@ -18,10 +20,7 @@ const Cart = () => {
       </header>
       <div>
         {cart.items.map((item) => {
-          /* return <p>hey</p>; */
-          console.log(cart.items);
-          console.log(item);
-          return <CartItem key={item.id} {...item} />;
+          return <CartItem key={item.id} item={item} />;
         })}
       </div>
       <footer>

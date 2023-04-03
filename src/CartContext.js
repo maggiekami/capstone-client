@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 
 export const CartContext = createContext({
@@ -9,33 +8,33 @@ export const CartContext = createContext({
   removeItemFromCart: () => {},
   removeAllFromCart: () => {},
   getTotal: () => {},
-  // fetchItemData: () => {},
 });
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
-  const [cartProduct, setCartProduct] = useState({});
 
   useEffect(() => {
     const storedCartItems = localStorage.getItem("cartItems");
+
     if (storedCartItems) {
       setCartItems(JSON.parse(storedCartItems));
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    // Only update local storage IF the card has items
+    if (cartItems.length !== 0) {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
   }, [cartItems]);
-
-  const { productId } = useParams();
 
   const fetchItemData = async (productId) => {
     try {
       const response = await axios.get(
         `http://localhost:8080/product/${productId}`
       );
-      setCartProduct(response.data);
-      console.log(response.data);
+
+      return response.data;
     } catch (error) {
       console.log(`Error fetching item data for ID ${productId}:`);
     }
@@ -49,33 +48,28 @@ export function CartProvider({ children }) {
     return quantity;
   };
 
-  const addItemToCart = (id) => {
+  const addItemToCart = async (id) => {
     const quantity = getItemQuantity(id);
-    const itemData = fetchItemData(id);
+    const itemData = await fetchItemData(id);
+
     if (quantity === 0) {
       setCartItems([
         ...cartItems,
         {
-          // how to get name of actual item here
-          // name: "mk",
-          ...cartProduct,
+          ...itemData,
           id: id,
           quantity: 1,
-          // name: itemData.name,
+          name: itemData[0].name,
+          price: itemData[0].price,
         },
       ]);
-      // shows empty array in console
     } else {
       setCartItems(
-        cartItems.map(
-          (item) =>
-            item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-          // it was ...item instead of cartProduct
+        cartItems.map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity + 1 } : item
         )
       );
     }
-    console.log(cartItems);
-    // console.log(itemData);
   };
 
   const removeAllFromCart = (id) => {
@@ -110,14 +104,15 @@ export function CartProvider({ children }) {
   //   return itemDetails;
   // };
 
-  // const getTotal = () => {
-  //   let total = 0;
-  //   cartItems.map((item) => {
-  //     // getItemDetails(item.id) here instead of cartitems
-  //     const itemDetails = getCartItemDetails(item.id);
-  //     return (total += itemDetails.price * item.quantity);
-  //   });
-  // };
+  const getTotal = () => {
+    let total = 0;
+
+    cartItems.forEach((item) => {
+      total += item.price * item.quantity;
+    });
+
+    return total;
+  };
 
   const contextValue = {
     items: cartItems,
@@ -125,7 +120,7 @@ export function CartProvider({ children }) {
     addItemToCart,
     removeItemFromCart,
     removeAllFromCart,
-    // getTotal,
+    getTotal,
     // fetchItemData,
   };
 

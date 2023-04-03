@@ -23,7 +23,8 @@ const Products = () => {
   }, []);
 
   if (!products) {
-    return <Loading />;
+    return <p>Loading...</p>;
+    // return <Loading />;
   }
 
   return products.map((product) => {
