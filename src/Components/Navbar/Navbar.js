@@ -17,10 +17,10 @@ const Navbar = () => {
     0
   );
 
-  //   const handleCloseModalClick = (e) => {
-  //     setShowModal(false);
-  //     navigate("/");
-  //   };
+  const handleCloseModalClick = (e) => {
+    setShowModal(false);
+    navigate("/");
+  };
 
   const handleClick = (e) => {
     setShowModal(true);
@@ -45,7 +45,17 @@ const Navbar = () => {
         ariaHideApp={false}
         overlayClassName="nav__overlay"
       >
-        {productsCount > 0 ? <Cart /> : <h1>There are no items in your bag</h1>}
+        {productsCount > 0 ? (
+          <>
+            <Cart />
+            <button onClick={handleCloseModalClick}>Back</button>
+          </>
+        ) : (
+          <>
+            <h1>There are no items in your bag</h1>{" "}
+            <button onClick={handleCloseModalClick}>Back</button>
+          </>
+        )}
       </Modal>
     </>
   );

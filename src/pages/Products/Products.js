@@ -1,5 +1,7 @@
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 import axios from "axios";
 import { Loading } from "react-loading-dot";
 
@@ -25,24 +27,8 @@ const Products = () => {
   }
 
   return products.map((product) => {
-    return <ProductCard product={product} />;
+    return <ProductCard product={product} key={product.id} />;
   });
-
-  /* <h1>Products here</h1>
-      {products &&
-        products.map((product) => {
-          return <ProductCard product={product} />;
-        })} */
 };
-
-// const getItemDetails = (id) => {
-//   let itemDetails = products.find((product) => product.id === id);
-//   if (itemDetails === undefined) {
-//     return undefined;
-//   }
-//   return itemDetails;
-// };
-
-// export { getItemDetails };
 
 export default Products;

@@ -13,6 +13,7 @@ function App() {
             {/* jak chce landing page to potem zmien product z / na /products */}
             {/* <Route path="/" element={<Home />} /> */}
             <Route path="/" element={<Products />} />
+            {/* <Route path="/:productId" element={<ProductDetails />} /> */}
           </Routes>
         </BrowserRouter>
       </div>
