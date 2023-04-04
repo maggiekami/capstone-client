@@ -30,9 +30,7 @@ export function CartProvider({ children }) {
 
   const fetchItemData = async (productId) => {
     try {
-      const response = await axios.get(
-        `http://localhost:8080/product/${productId}`
-      );
+      const response = await axios.get(`${URL}/product/${productId}`);
 
       return response.data;
     } catch (error) {
