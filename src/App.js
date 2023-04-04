@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import CartProvider from "./CartContext";
 import Products from "./pages/Products/Products";
+import RegistrationForm from "./pages/Register/Register";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             {/* <Route path="/" element={<Home />} /> */}
             <Route path="/" element={<Products />} />
             {/* <Route path="/:productId" element={<ProductDetails />} /> */}
+            <Route path="/register" element={<RegistrationForm />} />
           </Routes>
         </BrowserRouter>
       </div>
