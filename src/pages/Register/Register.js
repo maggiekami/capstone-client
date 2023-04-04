@@ -63,6 +63,9 @@ const RegistrationForm = () => {
       passwordConfirmation: formFields.passwordConfirmation,
     };
 
+    // const hashedPassword = sha256(formFields.password);
+    // console.log(hashedPassword.toString()); // Prints: 2ef7bde608ce5404e97d5f042f95f89f1c232871dfcc1e1d7be6c1e70f0d2d38
+
     try {
       setIsLoading(true);
       await axios.post(`${URL}/user`, newUser);
@@ -176,11 +179,18 @@ const RegistrationForm = () => {
             onChange={handleChange}
             placeholder="Confirm password"
           />
-          {error.passwordConfirmation && (
+          {formFields.passwordConfirmation !== formFields.password && (
             <span className="form__error">Passwords need to match</span>
           )}
         </div>
-        <button type="submit">Register</button>
+        <div>
+          <button type="submit">Register</button>
+        </div>
+        {/* if(!email){
+          return <div className="form__error-all">
+            <span>All fields are required</span>
+          </div>
+        } */}
       </form>
     </div>
   );
