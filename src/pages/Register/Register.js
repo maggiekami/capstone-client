@@ -78,8 +78,9 @@ const RegistrationForm = () => {
 
     try {
       setIsLoading(true);
-      await axios.post(`${URL}/register`, newUser);
+      const { data } = await axios.post(`${URL}/register`, newUser);
       console.log(newUser);
+      console.log(data);
       navigate("/login");
     } catch (error) {
       setIsLoading(false);
