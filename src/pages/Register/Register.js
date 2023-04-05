@@ -1,5 +1,5 @@
 import { useState } from "react";
-import sha256 from "crypto-js/sha256";
+// import sha256 from "crypto-js/sha256";
 import { useNavigate } from "react-router-dom";
 import "./Register.scss";
 import axios from "axios";
@@ -80,10 +80,7 @@ const RegistrationForm = () => {
       setIsLoading(true);
       await axios.post(`${URL}/register`, newUser);
       console.log(newUser);
-
-      // navigate("/");
-      //   setFormFields(initialValues);
-      console.log("not wrong on client");
+      navigate("/login");
     } catch (error) {
       setIsLoading(false);
       setError(error.message);

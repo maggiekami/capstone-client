@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
 export const CartContext = createContext({
@@ -30,7 +30,9 @@ export function CartProvider({ children }) {
 
   const fetchItemData = async (productId) => {
     try {
-      const response = await axios.get(`${URL}/product/${productId}`);
+      const response = await axios.get(
+        `http://localhost:8080/product/${productId}`
+      );
 
       return response.data;
     } catch (error) {
@@ -60,6 +62,7 @@ export function CartProvider({ children }) {
           name: itemData[0].name,
           price: itemData[0].price,
         },
+        console.log(itemData),
       ]);
     } else {
       setCartItems(

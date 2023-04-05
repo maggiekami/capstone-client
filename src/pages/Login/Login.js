@@ -1,36 +1,51 @@
 import "./Login.scss";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const URL = process.env.REACT_APP_BACKEND_URL;
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const initialValues = {
+    email: "",
+    password: "",
+  };
+  const [formFields, setFormFields] = useState("");
+  const [isFormValid, setIsFormValid] = useState(true);
   const [error, setError] = useState("");
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
+  const navigate = useNavigate();
+
+  const isValid = () => {
+    if (!formFields.email || !formFields.password) {
+      setIsFormValid(false);
+    } else setIsFormValid(true);
   };
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormFields({
+      ...formFields,
+      [name]: value,
+    });
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    // add new user object
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     const user = {
-      email: event.target.email.value,
-      password: event.target.password.value,
+      email: formFields.email,
+      password: formFields.password,
     };
-
-    try {
-      await axios.post(`${URL}/login`, user);
-      // navigate("/");
-    } catch (error) {
-      setError(error.message);
-    }
+    axios
+      .post(`${URL}/login`, user)
+      .then((res) => {
+        console.log(res);
+        const { token } = res.data;
+        sessionStorage.setItem("authToken", token);
+      })
+      .then(navigate("/"))
+      .catch((err) => console.log(err));
   };
   //   setEmail("");
   //   setPassword("");
@@ -48,8 +63,8 @@ const LoginForm = () => {
             type="email"
             id="email"
             name="email"
-            value={email}
-            onChange={handleEmailChange}
+            // value={formFields.email}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -58,8 +73,8 @@ const LoginForm = () => {
             name="password"
             type="password"
             id="password"
-            value={password}
-            onChange={handlePasswordChange}
+            // value={formFields.password}
+            onChange={handleChange}
           />
         </div>
         <button type="submit">Login</button>
