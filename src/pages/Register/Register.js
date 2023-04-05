@@ -30,8 +30,20 @@ const RegistrationForm = () => {
   const [formFields, setFormFields] = useState(initialValues);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
+  const [isFormValid, setIsFormValid] = useState(true);
   const navigate = useNavigate();
+
+  const isValid = () => {
+    if (
+      !formFields.email ||
+      !formFields.fName ||
+      !formFields.lName ||
+      !formFields.password ||
+      !formFields.passwordConfirmation
+    ) {
+      setIsFormValid(false);
+    } else setIsFormValid(true);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,26 +66,29 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // isValid();
 
     const newUser = {
       email: formFields.email,
       fName: formFields.fName,
       lName: formFields.lName,
-      password: sha256(formFields.password),
-      passwordConfirmation: formFields.passwordConfirmation,
+      password: formFields.password,
+      //   passwordConfirmation: formFields.passwordConfirmation,
     };
-
-    // const hashedPassword = sha256(formFields.password);
-    // console.log(hashedPassword.toString()); // Prints: 2ef7bde608ce5404e97d5f042f95f89f1c232871dfcc1e1d7be6c1e70f0d2d38
 
     try {
       setIsLoading(true);
-      await axios.post(`${URL}/user`, newUser);
+      await axios.post(`${URL}/register`, newUser);
+      console.log(newUser);
+
       // navigate("/");
       //   setFormFields(initialValues);
-    } catch (err) {
+      console.log("not wrong on client");
+    } catch (error) {
       setIsLoading(false);
-      setError(err.message);
+      setError(error.message);
+      console.log("wrong on client");
+      console.log(error.message);
     }
   };
 
@@ -85,7 +100,7 @@ const RegistrationForm = () => {
   return (
     <div>
       <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} onBlur={isValid}>
         <div>
           <label htmlFor="email">Email</label>
           <input
@@ -184,13 +199,13 @@ const RegistrationForm = () => {
           )}
         </div>
         <div>
-          <button type="submit">Register</button>
+          <button type="submit" disabled={!isFormValid}>
+            Register
+          </button>
+          {!isFormValid && (
+            <span className="form__error">All fields are required</span>
+          )}
         </div>
-        {/* if(!email){
-          return <div className="form__error-all">
-            <span>All fields are required</span>
-          </div>
-        } */}
       </form>
     </div>
   );
