@@ -10,7 +10,7 @@ const LoginForm = () => {
     email: "",
     password: "",
   };
-  const [formFields, setFormFields] = useState("");
+  const [formFields, setFormFields] = useState(initialValues);
   const [isFormValid, setIsFormValid] = useState(true);
   const [error, setError] = useState("");
 
@@ -30,28 +30,28 @@ const LoginForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  //   setEmail("");
+  //   setPassword("");
+  // alert("Registration successful.");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // isValid();
 
     const user = {
       email: formFields.email,
       password: formFields.password,
     };
-    axios
-      .post(`${URL}/login`, user)
-      .then((res) => {
-        console.log(res);
-        const { token } = res.data;
-        sessionStorage.setItem("authToken", token);
-      })
-      .then(navigate("/"))
-      .catch((err) => console.log(err));
+
+    try {
+      const response = await axios.post(`${URL}/login`, user);
+      const token = response.data.token;
+      localStorage.setItem("token", token);
+      //   navigate("/");
+    } catch (error) {
+      setError(error.message);
+    }
   };
-  //   setEmail("");
-  //   setPassword("");
-
-  // alert("Registration successful.");
-
   return (
     <div>
       <h2>Login</h2>

@@ -35,6 +35,7 @@ export function CartProvider({ children }) {
       );
 
       return response.data;
+      console.log("fetch context working");
     } catch (error) {
       console.log(`Error fetching item data for ID ${productId}:`);
     }
@@ -46,6 +47,7 @@ export function CartProvider({ children }) {
       return 0;
     }
     return quantity;
+    console.log(quantity);
   };
 
   const addItemToCart = async (id) => {
@@ -71,6 +73,7 @@ export function CartProvider({ children }) {
         )
       );
     }
+    console.log(cartItems);
   };
 
   const removeAllFromCart = (id) => {
