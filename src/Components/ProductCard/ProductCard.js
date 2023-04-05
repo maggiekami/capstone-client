@@ -17,7 +17,6 @@ const ProductCard = ({ product }) => {
       <button onClick={() => cart.removeItemFromCart(product.id)}>
         Remove from bag
       </button>
-      {/* <button onClick={() => console.log(product)}>Add to bag</button> */}
     </article>
   );
 };

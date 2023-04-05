@@ -43,11 +43,14 @@ export function CartProvider({ children }) {
 
   const getItemQuantity = (id) => {
     const quantity = cartItems.find((item) => item.id === id)?.quantity;
+
+    console.log(quantity);
+
     if (quantity === undefined) {
       return 0;
     }
+
     return quantity;
-    console.log(quantity);
   };
 
   const addItemToCart = async (id) => {
@@ -64,7 +67,6 @@ export function CartProvider({ children }) {
           name: itemData[0].name,
           price: itemData[0].price,
         },
-        console.log(itemData),
       ]);
     } else {
       setCartItems(
@@ -73,7 +75,6 @@ export function CartProvider({ children }) {
         )
       );
     }
-    console.log(cartItems);
   };
 
   const removeAllFromCart = (id) => {

@@ -44,7 +44,7 @@ const LoginForm = () => {
     };
 
     try {
-      const response = await axios.post(`${URL}/login`, user);
+      const response = await axios.post(`${URL}/auth/login`, user);
       const token = response.data.token;
       localStorage.setItem("token", token);
       //   navigate("/");

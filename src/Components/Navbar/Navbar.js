@@ -12,6 +12,8 @@ const Navbar = () => {
   const navigate = useNavigate();
   const cart = useContext(CartContext);
 
+  console.log(cart.items);
+
   const productsCount = cart.items.reduce(
     (sum, product) => sum + product.quantity,
     0
