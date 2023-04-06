@@ -5,6 +5,7 @@ import Products from "./pages/Products/Products";
 import RegistrationForm from "./pages/Register/Register";
 import LoginForm from "./pages/Login/Login";
 import CheckoutForm from "./pages/CheckoutForm/CheckoutForm";
+import Checkout from "./pages/Checkout/Checkout";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/register" element={<RegistrationForm />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/order" element={<CheckoutForm />} />
+            <Route path="/stripe" element={<Checkout />} />
           </Routes>
         </BrowserRouter>
       </div>

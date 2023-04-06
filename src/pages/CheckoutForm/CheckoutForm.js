@@ -1,7 +1,10 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../../CartContext";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 // import * as yup from "yup";
+
 const URL = process.env.REACT_APP_BACKEND_URL;
 
 const CheckoutForm = () => {
@@ -19,6 +22,7 @@ const CheckoutForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,7 +48,7 @@ const CheckoutForm = () => {
       const { data } = await axios.post(`${URL}/order`, newOrder);
       console.log(newOrder);
       console.log(data);
-      //   navigate("/login");
+      navigate("/stripe");
     } catch (error) {
       setIsLoading(false);
       setError(error.message);
@@ -52,6 +56,35 @@ const CheckoutForm = () => {
       console.log(error.message);
     }
   };
+
+  //STRIPE HANDLE
+  //   const handleStripe = async (e) => {
+  //     e.preventDefault();
+  // isValid();
+
+  // const abc = {
+  //   address: formFields.address,
+  //   fName: formFields.fName,
+  //   lName: formFields.lName,
+  //   total: cart.getTotal(),
+  // };
+
+  // try {
+  //   console.log(abc);
+  //   //   setIsLoading(true);
+  //   const { datatest } = await axios.post(
+  //     `${URL}/create-checkout-session`,
+  //     abc
+  //   );
+  //   console.log(abc);
+  //   console.log(datatest);
+  //   //   navigate("/create-checkout-session");
+  // } catch (error) {
+  //   setIsLoading(false);
+  //   setError(error.message);
+  //   console.log("wrong on client");
+  //   console.log(error.message);
+  // }
 
   //     alert("Registration successful.");
   if (isLoading) {
@@ -146,6 +179,13 @@ const CheckoutForm = () => {
           >
             Checkout
           </button>
+          {/* <button
+            type="button"
+            onClick={handleStripe}
+            //   disabled={!isFormValid}
+          >
+            Stripe
+          </button> */}
           {/* {!isFormValid && (
             <span className="form__error">All fields are required</span>
           )} */}
