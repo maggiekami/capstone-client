@@ -44,7 +44,7 @@ export function CartProvider({ children }) {
   const getItemQuantity = (id) => {
     const quantity = cartItems.find((item) => item.id === id)?.quantity;
 
-    console.log(quantity);
+    // console.log(quantity);
 
     if (quantity === undefined) {
       return 0;

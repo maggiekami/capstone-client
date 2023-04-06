@@ -32,7 +32,7 @@ const Cart = () => {
           </h4>
         </div>
         {/* <button onClick={handleCloseModalClick}>Cancel</button> */}
-        <button>Go to checkout</button>
+        <button onClick={navigate("/order")}>Go to checkout</button>
       </footer>
     </section>
   );

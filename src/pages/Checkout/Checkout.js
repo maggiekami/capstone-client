@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState, useContext } from "react";
+import { CartContext } from "../../CartContext";
 
 const formatPrice = ({ amount, currency, quantity }) => {
   const numberFormat = new Intl.NumberFormat("en-US", {
@@ -22,6 +24,7 @@ const Checkout = () => {
   const [quantity, setQuantity] = useState(1);
   const [amount, setAmount] = useState(0);
   const [currency, setCurrency] = useState("USD");
+  const cart = useContext(CartContext);
 
   useEffect(() => {
     async function fetchConfig() {
@@ -32,14 +35,35 @@ const Checkout = () => {
       setAmount(unitAmount);
       setCurrency(currency);
     }
-    fetchConfig();
+    // fetchConfig();
   }, []);
+
+  const handleStripe = async (event) => {
+    event.preventDefault();
+
+    const total = cart.getTotal();
+
+    console.log(total);
+    // console.log(event.target.orderTotal.value);
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/create-checkout-session",
+        {
+          orderTotal: total,
+        }
+      );
+
+      window.location.assign(response.data.url);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="sr-root">
       <div className="sr-main">
         <section className="container">
-          <div>
+          {/* <div>
             <h1>Single photo</h1>
             <h4>Purchase a Pasha original photo</h4>
             <div className="pasha-image">
@@ -50,12 +74,24 @@ const Checkout = () => {
                 height="160"
               />
             </div>
-          </div>
+          </div> */}
           <form
+            onSubmit={handleStripe}
             action="http://localhost:8080/create-checkout-session"
             method="POST"
           >
-            <div className="quantity-setter">
+            {/* <input
+              type="hidden"
+              id="orderTotal"
+              min="1"
+              max="10"
+              // value={cart.getTotal()}
+              value="7"
+              amount="4000"
+              name="orderTotal"
+              readOnly
+            /> */}
+            {/* <div className="quantity-setter">
               <button
                 className="increment-btn"
                 disabled={quantity === 1}
@@ -81,11 +117,10 @@ const Checkout = () => {
               >
                 +
               </button>
-            </div>
-            <p className="sr-legal-text">Number of copies (max 10)</p>
-
+            </div> */}
+            <p>Your total:{cart.getTotal()}</p>
             <button role="link" id="submit" type="submit">
-              Buy {formatPrice({ amount, currency, quantity })}
+              Make Stripe Payment
             </button>
           </form>
         </section>
