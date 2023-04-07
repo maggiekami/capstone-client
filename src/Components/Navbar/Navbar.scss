@@ -1,4 +1,71 @@
-.nav {
+
+
+.header {
+
+  &__section {
+    border: 3px solid red;
+    position: fixed;
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    background:transparent;
+    width: 100%;
+    // padding: 1rem;
+    z-index: 1000;
+  }
+
+  &__logo-div {
+    border: 2px solid orange;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    
+  }
+  &__icon {
+    font-size: 2rem;
+    cursor:pointer;
+    &--left {
+      font-size: 1.5rem;
+    }
+  }
+  &__navbar {
+    display: flex;
+    align-items: center;
+    border: 3px solid black;
+    // position: absolute;
+    height: max-content;
+    padding: 1rem;
+    // width: 100em;
+    // top: 0;
+    // left: 0;
+    box-shadow: 0 2px 4px rgba(209,209,209,0.904);
+    
+  }
+  &__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+
+
+    
+  }
+
+  &__nav-item {
+    font-size: 2rem;
+
+  }
+
+
+
+
+
+
     &__cart-modal {
         // @include btn;
         position: absolute;

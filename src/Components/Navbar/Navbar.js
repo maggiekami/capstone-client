@@ -1,6 +1,11 @@
 import "./Navbar.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import icon from "../../assets/images/knitting.png";
+import { GrCart } from "react-icons/gr";
+import { GiSewingNeedle } from "react-icons/gi";
+import { BiUserCircle } from "react-icons/bi";
+
+// import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { CartContext } from "../../CartContext";
@@ -30,22 +35,34 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="nav">
-        <div className="nav__container">
-          <nav className="nav__main">
-            <button onClick={handleClick}>
-              <FontAwesomeIcon icon={faCartShopping} />
-              {productsCount}
-            </button>
+      <section className="header">
+        <header className="header__section">
+          <div className="header__logo-div">
+            <h1 className="header__heading">
+              <GiSewingNeedle className="header__icon" />
+              Renee Crafts
+            </h1>
+          </div>
+          <nav className="header__navbar">
+            <ul className="header__list">
+              <li className="header__nav-item">
+                <BiUserCircle className="header__icon--left" />
+              </li>
+              <li onClick={handleClick}>
+                <GrCart className="header__icon--left" />
+                {productsCount}
+              </li>
+            </ul>
           </nav>
-        </div>
-      </header>
+        </header>
+      </section>
+
       <Modal
-        className="nav__cart-modal"
+        className="header__cart-modal"
         isOpen={showModal}
         onRequestClose={() => setShowModal(false)}
         ariaHideApp={false}
-        overlayClassName="nav__overlay"
+        overlayClassName="header__overlay"
       >
         {productsCount > 0 ? (
           <>

@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
 import CartProvider from "./CartContext";
 import Products from "./pages/Products/Products";

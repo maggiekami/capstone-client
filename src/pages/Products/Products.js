@@ -1,7 +1,7 @@
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import Hero from "../../components/Hero/Hero";
 import axios from "axios";
 import { Loading } from "react-loading-dot";
 
@@ -27,9 +27,14 @@ const Products = () => {
     // return <Loading />;
   }
 
-  return products.map((product) => {
-    return <ProductCard product={product} key={product.id} />;
-  });
+  return (
+    <>
+      <Hero />
+      {products.map((product) => {
+        return <ProductCard product={product} key={product.id} />;
+      })}
+    </>
+  );
 };
 
 export default Products;
