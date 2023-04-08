@@ -1,3 +1,6 @@
+@use "../../styles/partials/variables" as *;
+
+
 .hero {
   height: 70vh;
   background:linear-gradient(rgba(33,33,33,0.522), rgba(33,33,33,0.522));
@@ -10,6 +13,7 @@
   justify-content: center;
  &__container {
   border: 2pxm solid blue;
+  color: $primary-color-2;
   
 
  }

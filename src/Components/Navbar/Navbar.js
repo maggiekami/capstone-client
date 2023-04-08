@@ -1,7 +1,7 @@
 import "./Navbar.scss";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import icon from "../../assets/images/knitting.png";
-import { GrCart } from "react-icons/gr";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { GiSewingNeedle } from "react-icons/gi";
 import { BiUserCircle } from "react-icons/bi";
 
@@ -26,7 +26,7 @@ const Navbar = () => {
 
   const handleCloseModalClick = (e) => {
     setShowModal(false);
-    navigate("/");
+    // navigate("/");
   };
 
   const handleClick = (e) => {
@@ -49,7 +49,7 @@ const Navbar = () => {
                 <BiUserCircle className="header__icon--left" />
               </li>
               <li onClick={handleClick}>
-                <GrCart className="header__icon--left" />
+                <AiOutlineShoppingCart className="header__icon--left" />
                 {productsCount}
               </li>
             </ul>

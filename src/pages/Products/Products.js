@@ -30,6 +30,7 @@ const Products = () => {
   return (
     <>
       <Hero />
+      <h1>Our Products</h1>
       {products.map((product) => {
         return <ProductCard product={product} key={product.id} />;
       })}

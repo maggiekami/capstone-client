@@ -1,3 +1,4 @@
+@use "../../styles/partials/variables" as *;
 
 
 .header {
@@ -12,6 +13,7 @@
     width: 100%;
     // padding: 1rem;
     z-index: 1000;
+    color: $primary-color-2;
   }
 
   &__logo-div {
@@ -80,6 +82,7 @@
         z-index: 20;
         opacity: 1;
         border: 1.5px solid grey;
+        background-color: grey;
     
       }
       &__overlay {
@@ -88,7 +91,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgb(218, 204, 204, 0.7);
+        background-color: rgb(218, 204, 204, 0.9);
         z-index: 10;
         
       }
