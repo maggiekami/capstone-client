@@ -1,4 +1,6 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/forms" as *;
 
 
 .header {
@@ -13,7 +15,7 @@
     width: 100%;
     // padding: 1rem;
     z-index: 1000;
-    color: $primary-color-2;
+    color: $primary-colour-2;
   }
 
   &__logo-div {
@@ -94,5 +96,8 @@
         background-color: rgb(218, 204, 204, 0.9);
         z-index: 10;
         
+      }
+      &__back-btn {
+        @include button;
       }
 }

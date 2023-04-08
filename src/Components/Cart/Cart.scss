@@ -1,3 +1,9 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 .cart {
     background-color: grey;
+    &__button {
+        @include button;
+    };
 }

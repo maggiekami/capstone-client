@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Hero from "../../components/Hero/Hero";
 import axios from "axios";
 import { Loading } from "react-loading-dot";
+import ProductsSection from "../../components/ProductsSection/ProductsSection";
 
 const Products = () => {
   const API_BASE_URL = "http://localhost:8080";
@@ -30,7 +31,8 @@ const Products = () => {
   return (
     <>
       <Hero />
-      <h1>Our Products</h1>
+      {/* <h1>Our Products</h1> */}
+      <ProductsSection />
       {products.map((product) => {
         return <ProductCard product={product} key={product.id} />;
       })}

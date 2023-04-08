@@ -1,4 +1,13 @@
 .cart-item {
     display: flex;
     justify-content: space-around;
+    align-items: baseline;
+    &__name {
+        margin: 0;
+        font-size: 1.4rem;
+    }
+    &__quantity {
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
 }

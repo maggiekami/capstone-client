@@ -12,3 +12,9 @@
       @content;
     }
   }
+  
+  @mixin button {
+  border-radius: 1rem;
+  padding: 0.3rem 1.7rem;
+};
+  
