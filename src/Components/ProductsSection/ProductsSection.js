@@ -1,9 +1,14 @@
 import "./ProductsSection.scss";
+import { CartContext } from "../../CartContext";
+import { useContext } from "react";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { BsArrowRightShort } from "react-icons/bs";
 import pic from "../../assets/images/heroImg.jpg";
+import ProductCard from "../ProductCard/ProductCard";
 
-const ProductsSection = () => {
+const ProductsSection = ({ product }) => {
+  const cart = useContext(CartContext);
+  const productQuantity = cart.getItemQuantity(product.id);
   return (
     <>
       <section className="products">
@@ -20,6 +25,9 @@ const ProductsSection = () => {
           </div>
 
           <div className="products__main">
+            {/* {products.map((product) => {
+              return <ProductCard product={product} key={product.id} />;
+            })} */}
             <div className="products__single">
               <div className="products__img-container">
                 <img className="products__img" src={pic} alt="knit" />
@@ -31,7 +39,7 @@ const ProductsSection = () => {
                 </div>
               </div>
               <div className="products__single-footer">
-                <div className="products__number">01</div>
+                <div className="products__number">{product.price}</div>
                 <div className="products__info-flex">
                   <h6 className="products__info-heading">London</h6>
                   <span className="products__flex">

@@ -16,6 +16,7 @@ const Products = () => {
       try {
         const { data } = await axios.get(`${API_BASE_URL}/product`);
         setProducts(data);
+        console.log(data);
       } catch (err) {
         console.log(err);
       }
@@ -32,9 +33,12 @@ const Products = () => {
     <>
       <Hero />
       {/* <h1>Our Products</h1> */}
-      <ProductsSection />
-      {products.map((product) => {
+      {/* <ProductsSection products={products} /> */}
+      {/* {products.map((product) => {
         return <ProductCard product={product} key={product.id} />;
+      })} */}
+      {products.map((product) => {
+        return <ProductsSection product={product} key={product.id} />;
       })}
     </>
   );
