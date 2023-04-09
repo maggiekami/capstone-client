@@ -18,6 +18,11 @@
     color: $primary-colour-2;
   }
 
+  &__section-active {
+    background: red;
+    // box-shadow:
+  }
+
   &__logo-div {
     border: 2px solid orange;
     align-items: center;

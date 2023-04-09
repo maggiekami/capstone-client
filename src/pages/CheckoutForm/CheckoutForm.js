@@ -79,7 +79,7 @@ const CheckoutForm = () => {
       <section className="form__input-container">
         <section className="form__section">
           <div className="form__section-container">
-            <h3 className="form__section-title">Warehouse Details</h3>
+            <h3 className="form__section-title">Your details</h3>
             <label htmlFor="warehouse-name" className="form__label">
               New order
             </label>

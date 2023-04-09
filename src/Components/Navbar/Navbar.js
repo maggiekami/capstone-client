@@ -14,10 +14,18 @@ import Cart from "../Cart/Cart";
 
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
+  const [transparent, setTransparent] = useState("header__section");
   const navigate = useNavigate();
   const cart = useContext(CartContext);
 
-  // console.log(cart.items);
+  const addBackground = () => {
+    if (window.scrollY >= 10) {
+      setTransparent("header__section header__section-active");
+    } else {
+      setTransparent("header__section");
+    }
+  };
+  window.addEventListener("scroll", addBackground);
 
   const productsCount = cart.items.reduce(
     (sum, product) => sum + product.quantity,
@@ -36,7 +44,7 @@ const Navbar = () => {
   return (
     <>
       <section className="header">
-        <header className="header__section">
+        <header className={transparent}>
           <div className="header__logo-div">
             <h1 className="header__heading">
               <GiSewingNeedle className="header__icon" />
