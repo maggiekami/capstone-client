@@ -8,6 +8,7 @@
   &__section {
     border: 3px solid red;
     position: fixed;
+    top: 0;
     display:flex;
     align-items: center;
     justify-content:space-between;
@@ -19,9 +20,11 @@
   }
 
   &__section-active {
-    background: red;
+    background: #2b0001;
     // box-shadow:
   }
+
+
 
   &__logo-div {
     border: 2px solid orange;

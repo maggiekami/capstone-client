@@ -4,37 +4,33 @@
 
 .form {
   width: 90%;
-  margin: -7rem auto 0 auto;
+  font-size: 2.2rem;
+  margin: 6rem auto 0 auto;
   border-radius: 2px;
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   background-color: $primary-colour-3;
   font-family: "Titillium Web", sans-serif;
-  @include tablet {
-    margin: -12rem auto 0 auto;
+  @include tablet-l {
+    width: 75%;
+  }
+  @include desktop-sm {
+    width: 70%;
   }
   @include desktop {
     max-width: $desktop-breakpoint;
   }
   &__title-wrapper {
-    margin: 2rem 0rem;
     display: flex;
     border-bottom: 1px solid $secondary-colour-2;
   }
 
-  &__go-back-btn {
-    all: unset;
-    // background-image: url("../../assets/Icons/arrow_back-24px.svg");
-    padding: 1.6rem;
-    background-repeat: no-repeat;
-    background-position-y: 50%;
-    cursor: pointer;
-  }
   &__title {
     font-size: 2.4rem;
-    width: 60%;
+    width: 100%;
   }
 
   &__input-container {
+
     @include tablet {
       display: flex;
       justify-content: space-around;
@@ -45,6 +41,7 @@
     margin: 0 auto;
 
     &--actions {
+
       display: flex;
       justify-content: space-between;
 
@@ -55,45 +52,30 @@
     &--title-btn {
       display: flex;
       align-items: flex-start;
-      margin: 2rem auto;
+      margin: 4rem auto;
     }
   }
   &__section {
+    padding: 1rem 0;
     width: 100%;
     @include tablet {
       margin-bottom: 2rem;
     }
 
-    &:last-child {
-      @include tablet {
-        border-left: 1px solid $secondary-colour-2;
-      }
-    }
+    // &:last-child {
+    //   @include tablet {
+    //     border-left: 1px solid $secondary-colour-2;
+    //   }
+    // }
   }
   &__section-title {
     margin: 2rem 0;
-  }
-
-  &__radio {
-    margin-right: 1rem;
-  }
-  &__radio-group {
-    width: 40%;
-  }
-  &__radio-section {
-    display: flex;
-    justify-content: space-between;
   }
 
   &__label {
     display: block;
     margin: 2rem 0 0.5rem 0;
     font-weight: $demi;
-
-    &--radio {
-      display: inline;
-      font-weight: $regular;
-    }
   }
 
   &__text-input {
@@ -102,64 +84,53 @@
     padding: 1rem;
     border: 1px solid $secondary-colour-2;
     color: $secondary-colour-2;
-    font-family: "Titillium Web", sans-serif;
-
-    &--textarea {
-      height: 10rem;
-      resize: none;
-    }
+    font-size: 1.6rem;
+    // font-family: "Titillium Web", sans-serif;
+    font-family: inherit;
 
     &:focus {
       outline: none;
-      border: 1px solid $primary-colour-2;
-      color: $primary-colour-1;
+      background-color: white;
+      border: 1px solid black;
+      color: black;
     }
 
-    &:last-child {
-      margin-bottom: 2rem;
-      @include tablet {
-        margin-bottom: 0;
-      }
-    }
+    // &:last-child {
+    //   margin-bottom: 2rem;
+    //   @include tablet {
+    //     margin-bottom: 0;
+    //   }
+    // }
   }
   &__text-input-error {
     @extend .form__text-input;
-    border: 1px solid $supporting-colour-2;
+    border: 1px solid red;
   }
 
-  &__select {
-    border-radius: 2rem;
-    width: 100%;
-    padding: 1rem;
-    margin-bottom: 2rem;
-    border: 1px solid $secondary-colour-2;
-    color: $secondary-colour-2;
-    appearance: none;
-    // background-image: url("../../assets/Icons/arrow_drop_down-24px.svg");
-    background-repeat: no-repeat;
-    background-position-x: 95%;
-    background-position-y: 50%;
-    font-family: "Titillium Web", sans-serif;
-    &:focus {
-      outline: none;
-      border: 1px solid $primary-colour-2;
-      color: $primary-colour-1;
-    }
-  }
+  // &__select {
+  //   border-radius: 2rem;
+  //   width: 100%;
+  //   padding: 1rem;
+  //   margin-bottom: 2rem;
+  //   border: 1px solid $secondary-colour-2;
+  //   color: $secondary-colour-2;
+  //   appearance: none;
+  //   // background-image: url("../../assets/Icons/arrow_drop_down-24px.svg");
+  //   background-repeat: no-repeat;
+  //   background-position-x: 95%;
+  //   background-position-y: 50%;
+  //   font-family: "Titillium Web", sans-serif;
+  //   &:focus {
+  //     outline: none;
+  //     border: 1px solid $primary-colour-2;
+  //     color: $primary-colour-1;
+  //   }
+  // }
 
-  &__section {
-    border-bottom: 1px solid $secondary-colour-2;
-    @include tablet {
-      border-bottom: none;
-    }
-  }
-  &__section:last-child {
-    border-bottom: none;
-  }
+ 
 
   &__actions {
     padding: 2rem 0;
-    background-color: $background-colour-2;
     @include tablet {
       margin-left: auto;
     }
@@ -170,14 +141,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     height: 3.6rem;
-
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     line-height: 20px;
     border: none;
     cursor: pointer;
-    font-family: "Titillium Web", sans-serif;
+    // font-family: "Titillium Web", sans-serif;
+    font-family: inherit;
     @include tablet {
       width: 20%;
       margin-left: 2rem;
@@ -214,7 +184,7 @@
     }
   }
   &__error-all {
-    color: $supporting-colour-2;
+    color: red;
     text-align: center;
     margin-top: 0.5rem;
   }

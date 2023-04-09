@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import sha256 from "crypto-js/sha256";
 import { useNavigate } from "react-router-dom";
 import "./Register.scss";
 import axios from "axios";
