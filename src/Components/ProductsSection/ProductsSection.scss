@@ -1,3 +1,6 @@
+@use "../../styles/partials/_mixins.scss" as *;
+// @use "./mixins" as *;
+
 .products {
   border: 2px solid red;
   padding: 4rem 0 2rem;
@@ -11,16 +14,20 @@
 //     overflow: visible;
 //   }
 
-  &__header-flex {
-    border: 2px solid green;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-  &__icons-container {
-    gap: 0.5rem;
-  }
+&__container {
+
+}
+
+  // &__header-flex {
+  //   border: 2px solid green;
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: flex-start;
+  //   gap: 1rem;
+  // }
+  // &__icons-container {
+  //   gap: 0.5rem;
+  // }
   &__icon {
     font-size: 3rem;
     cursor: pointer;
@@ -35,11 +42,25 @@
     }
   }
 
+  &__main-container {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
   &__main {
+    border: 3px solid purple;
     display: grid;
     align-items: center;
+    // @media screen and (min-width: 556px) {
+    //   grid-template-columns: repeat(2,1fr);
+      
+    // }
   }
   &__single {
+    max-width: 35rem;
     border: 3px solid orange;
     overflow: hidden;
     border-radius: 1rem;
@@ -50,9 +71,6 @@
             // overflow: visible;
             height: 100%;
         }
-            
-        
-        
     }
   
   &__img-container {
