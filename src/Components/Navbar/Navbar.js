@@ -4,6 +4,7 @@ import "./Navbar.scss";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { GiSewingNeedle } from "react-icons/gi";
 import { BiUserCircle } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 // import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
@@ -54,10 +55,10 @@ const Navbar = () => {
       <section className="header">
         <header className={transparent}>
           <div className="header__logo-div">
-            <h1 className="header__heading">
+            <Link to="/" className="header__heading">
               <GiSewingNeedle className="header__icon" />
               Renee Crafts
-            </h1>
+            </Link>
           </div>
           <nav className="header__navbar">
             <ul className="header__list">

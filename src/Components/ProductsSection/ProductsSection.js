@@ -61,18 +61,9 @@ const ProductsSection = ({ product }) => {
                 </div>
                 <div className="products__info-flex">
                   <h6 className="products__info-heading">
-                    <StarRating />
+                    <StarRating productId={product.id} />
                   </h6>
                   <div className="products__number">£{product.price}</div>
-
-                  {/* <div className="products__flex">
-                    <span className="products__dot">
-                      <RxMinusCircled />
-                    </span>
-                    <span className="products__dot">
-                      <RxPlusCircled />
-                    </span>
-                  </div> */}
                 </div>
               </div>
             </div>

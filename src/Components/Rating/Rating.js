@@ -1,23 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const StarRating = () => {
+const StarRating = ({ productId }) => {
   const [rating, setRating] = useState(0);
 
+  useEffect(() => {
+    const storedRating = localStorage.getItem(`product_rating_${productId}`);
+
+    if (storedRating) {
+      setRating(JSON.parse(storedRating));
+    }
+  }, [productId]);
+
   const handleClick = (value) => {
-    // Update state with the selected rating value
     setRating(value);
 
-    // Save the rating in local storage
-    localStorage.setItem("product_rating", value);
+    localStorage.setItem(`product_rating_${productId}`, JSON.stringify(value));
   };
 
-  // Render the star rating component with buttons that trigger the handleClick function
   return (
     <div>
       {[...Array(5)].map((star, i) => {
         const ratingValue = i + 1;
         return (
-          <button key={ratingValue} onClick={() => handleClick(ratingValue)}>
+          <button
+            // className="rating"
+            // {ratingValue <= rating ? "rating__yellow-star" : "rating"}
+            key={ratingValue}
+            onClick={() => handleClick(ratingValue)}
+          >
             {ratingValue <= rating ? "★" : "☆"}
           </button>
         );
