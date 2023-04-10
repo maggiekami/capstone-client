@@ -131,7 +131,7 @@ const CheckoutForm = () => {
             {error.lName && (
               <span className="form__error">Please enter your last name</span>
             )}
-            <label htmlFor="warehouse-name" className="form__label">
+            <label htmlFor="address" className="form__label">
               Address
             </label>
             <input

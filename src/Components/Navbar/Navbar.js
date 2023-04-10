@@ -41,6 +41,10 @@ const Navbar = () => {
     setShowModal(true);
   };
 
+  const handleUserClick = (e) => {
+    navigate("/register");
+  };
+
   return (
     <>
       <section className="header">
@@ -53,7 +57,7 @@ const Navbar = () => {
           </div>
           <nav className="header__navbar">
             <ul className="header__list">
-              <li className="header__nav-item">
+              <li onClick={handleUserClick} className="header__nav-item">
                 <BiUserCircle className="header__icon--left" />
               </li>
               <li onClick={handleClick}>

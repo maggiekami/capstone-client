@@ -30,10 +30,6 @@ const LoginForm = () => {
     });
   };
 
-  //   setEmail("");
-  //   setPassword("");
-  // alert("Registration successful.");
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     // isValid();
@@ -47,39 +43,82 @@ const LoginForm = () => {
       const response = await axios.post(`${URL}/auth/login`, user);
       const token = response.data.token;
       localStorage.setItem("token", token);
-      //   navigate("/");
+      navigate("/");
     } catch (error) {
       setError(error.message);
     }
   };
   return (
-    <div>
-      <h2>Login</h2>
+    <form onSubmit={handleSubmit} onBlur={isValid}>
+      <section className="form__title-wrapper">
+        <div className="form__section-container form__section-container--title-btn">
+          <h2 className="form__title">Create account</h2>
+        </div>
+      </section>
+      <section className="form__input-container">
+        <section className="form__section">
+          <div className="form__section-container">
+            <h3 className="form__section-title">Your details</h3>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            // value={formFields.email}
-            onChange={handleChange}
-          />
+            <label htmlFor="email" className="form__label">
+              Email
+            </label>
+            <input
+              id="email"
+              type="text"
+              className={
+                error.email
+                  ? "form__text-input form__text-input-error"
+                  : "form__text-input"
+              }
+              name="email"
+              placeholder="Please enter your email..."
+              onChange={handleChange}
+              value={formFields.email}
+            />
+            {error.email && (
+              <span className="form__error">
+                Invalid email format (ex. 'user@example.com')
+              </span>
+            )}
+            <label htmlFor="password" className="form__label">
+              Password
+            </label>
+            <input
+              id="password"
+              type="text"
+              className={
+                error.password
+                  ? "form__text-input form__text-input-error"
+                  : "form__text-input"
+              }
+              name="password"
+              placeholder="Please enter your password..."
+              onChange={handleChange}
+              value={formFields.password}
+            />
+            {error.password && (
+              <span className="form__error">Please enter your password</span>
+            )}
+          </div>
+        </section>
+      </section>
+      <section className="form__actions">
+        <div className="form__section-container form__section-container--actions">
+          <button onClick={() => navigate("/")} className="form__btn">
+            Cancel
+          </button>
+          <button type="submit" className="form__btn" disabled={!isFormValid}>
+            Login
+          </button>
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            name="password"
-            type="password"
-            id="password"
-            // value={formFields.password}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-    </div>
+        {!isFormValid && (
+          <div className="form__error-all">
+            <span>All fields are required</span>
+          </div>
+        )}
+      </section>
+    </form>
   );
 };
 
