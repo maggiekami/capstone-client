@@ -1,0 +1,20 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/forms" as *;
+
+form {
+    font-family: 'Sacramento', sans-serif;
+    margin: 10rem auto 30rem auto;
+    @include tablet-l {
+    margin: 22rem auto 40rem auto;
+        @include desktop {
+        margin: 28rem auto 40rem auto;
+        }
+      }
+
+    &__title-wrapper {
+        margin-top: 3rem;
+        display: flex;
+        border-bottom: 1px solid #bdc5d5;
+    }
+}

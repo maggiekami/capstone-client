@@ -1,3 +1,14 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/forms" as *;
+
+form {
+    font-family: 'Sacramento', sans-serif;
+    margin: 6rem auto 12rem auto;
+    @include tablet-l {
+        margin: 10rem auto 20rem auto;
+    }
+            @include desktop {
+            margin: 18rem auto 40rem auto;
+            }
+}

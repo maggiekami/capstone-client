@@ -10,42 +10,37 @@ const Cart = () => {
 
   const cart = useContext(CartContext);
 
-  const handleClick = (e) => {
-    setShowModal(false);
-    navigate("/order");
-  };
-  // const handleCloseModalClick = (e) => {
-  //   navigate("/");
+  // const handleClick = (e) => {
+  //   setShowModal(false);
+  //   navigate("/order");
   // };
-
-  const handleClickClose = (e) => {
-    setShowModal(false);
-  };
 
   return (
     <section className="cart">
-      <header>
-        <h2>Your Bag</h2>
+      <header className="cart__heading-container">
+        <h2 className="cart__heading">Your Bag</h2>
       </header>
-      <div>
+      <div className="cart__items-container">
         {cart.items.map((item) => {
           return <CartItem key={item.id} item={item} />;
         })}
       </div>
 
-      <footer>
-        <hr />
-        <div className="cart__total">
-          <h4>
-            Total: <span>${cart.getTotal().toFixed(2)}</span>
+      <footer className="cart__footer">
+        {/* <hr /> */}
+        <div className="cart__total-container">
+          <h4 className="cart__total">
+            Total:{" "}
+            <span className="cart__total-amount">
+              £{cart.getTotal().toFixed(2)}
+            </span>
           </h4>
         </div>
         {/* <button onClick={handleCloseModalClick}>Cancel</button> */}
 
-        <button className="cart__button" onClick={handleClick}>
+        {/* <button className="cart__button" onClick={handleClick}>
           Go to checkout
-        </button>
-        <button onClick={handleClickClose}>X</button>
+        </button> */}
       </footer>
     </section>
   );

@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Checkout.scss";
 import { CartContext } from "../../CartContext";
 import Cart from "../../components/Cart/Cart";
 
@@ -26,6 +28,7 @@ const Checkout = () => {
   const [amount, setAmount] = useState(0);
   const [currency, setCurrency] = useState("USD");
   const cart = useContext(CartContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchConfig() {
@@ -44,8 +47,6 @@ const Checkout = () => {
 
     const total = cart.getTotal();
 
-    console.log(total);
-    // console.log(event.target.orderTotal.value);
     try {
       const response = await axios.post(
         "http://localhost:8080/create-checkout-session",
@@ -61,72 +62,43 @@ const Checkout = () => {
   };
 
   return (
-    <div className="sr-root">
-      <div className="sr-main">
-        <section className="container">
-          {/* <div>
-            <h1>Single photo</h1>
-            <h4>Purchase a Pasha original photo</h4>
-            <div className="pasha-image">
-              <img
-                alt="Random asset from Picsum"
-                src="https://picsum.photos/280/320?random=4"
-                width="140"
-                height="160"
-              />
-            </div>
-          </div> */}
-          <form
-            onSubmit={handleStripe}
-            action="http://localhost:8080/create-checkout-session"
-            method="POST"
-          >
-            {/* <input
-              type="hidden"
-              id="orderTotal"
-              min="1"
-              max="10"
-              // value={cart.getTotal()}
-              value="7"
-              amount="4000"
-              name="orderTotal"
-              readOnly
-            /> */}
-            {/* <div className="quantity-setter">
-              <button
-                className="increment-btn"
-                disabled={quantity === 1}
-                onClick={() => setQuantity(quantity - 1)}
-                type="button"
-              >
-                -
-              </button>
-              <input
-                type="number"
-                id="quantity-input"
-                min="1"
-                max="10"
-                value={quantity}
-                name="quantity"
-                readOnly
-              />
-              <button
-                className="increment-btn"
-                disabled={quantity === 10}
-                onClick={() => setQuantity(quantity + 1)}
-                type="button"
-              >
-                +
-              </button>
-            </div> */}
-            <p>Your total:{cart.getTotal()}</p>
-            <button role="link" id="submit" type="submit">
-              Make Stripe Payment
-            </button>
-          </form>
+    <form
+      onSubmit={handleStripe}
+      action="http://localhost:8080/create-checkout-session"
+      method="POST"
+    >
+      <section className="form__title-wrapper">
+        <div className="form__section-container form__section-container--title-btn">
+          <h2 className="form__title">Checkout securely</h2>
+        </div>
+      </section>
+      <section className="form__input-container">
+        <section className="form__section">
+          <div className="form__section-container">
+            <h3 className="form__section-title">
+              Your total: £ {cart.getTotal()}
+            </h3>
+          </div>
         </section>
-      </div>
-    </div>
+      </section>
+      <section className="form__actions">
+        <div className="form__section-container form__section-container--actions">
+          <button onClick={() => navigate("/")} className="form__btn">
+            Cancel
+          </button>
+          <button
+            role="link"
+            id="submit"
+            className="form__stripe-connect"
+            type="submit"
+          >
+            <span className="form__stripe-txt">
+              Connect with <span className="form__stripe-name"> STRIPE</span>{" "}
+            </span>
+          </button>
+        </div>
+      </section>
+    </form>
   );
 };
 

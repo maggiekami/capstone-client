@@ -3,13 +3,13 @@
 @use "./mixins" as *;
 
 .form {
+  font-family: "Sacramento", sans-serif;
+  margin: 6rem auto 12rem auto;
   width: 90%;
   font-size: 2.2rem;
-  margin: 6rem auto 0 auto;
   border-radius: 2px;
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   background-color: $primary-colour-3;
-  font-family: "Titillium Web", sans-serif;
   @include tablet-l {
     width: 75%;
   }
@@ -20,6 +20,7 @@
     max-width: $desktop-breakpoint;
   }
   &__title-wrapper {
+    margin-top: 3rem;
     display: flex;
     border-bottom: 1px solid $secondary-colour-2;
   }
@@ -30,7 +31,6 @@
   }
 
   &__input-container {
-
     @include tablet {
       display: flex;
       justify-content: space-around;
@@ -41,7 +41,6 @@
     margin: 0 auto;
 
     &--actions {
-
       display: flex;
       justify-content: space-between;
 
@@ -127,14 +126,13 @@
   //   }
   // }
 
- 
-
   &__actions {
     padding: 2rem 0;
     @include tablet {
       margin-left: auto;
     }
   }
+  
   &__btn {
     width: 45%;
     border-radius: 2rem;
@@ -151,7 +149,8 @@
     @include tablet {
       width: 20%;
       margin-left: 2rem;
-    }
+  };
+    
     &--submit {
       background-color: $primary-colour-2;
       color: $primary-colour-3;
@@ -170,6 +169,39 @@
       }
     }
   }
+  &__stripe-connect {
+    background: #635bff;
+    // display: inline-block;
+    // height: 38px;
+    // text-decoration: none;
+    // width: 180px;
+
+    border-radius: 4px;
+    width: 13rem;
+   
+    &:hover {
+      background: #7a73ff;
+    }
+  
+  }
+
+  &__stripe-txt {
+    color: #ffffff;
+    display: block;
+    font-family: sohne-var, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.4rem;
+    padding: 1.1rem 0.8rem;
+    // position: relative;
+    // text-align: left;
+    
+  }
+  &__stripe-name {
+    font-weight: bold;
+    color: white;
+  }
+
   &__error {
     color: $supporting-colour-2;
     margin: 1rem 0;

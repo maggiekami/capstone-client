@@ -15,21 +15,33 @@ const CartItem = ({ item }) => {
   return (
     <>
       <article className="cart-item">
-        <div>
-          <h4 className="cart-item__name">{item.name}</h4>
-        </div>
-        {/* <p>£{item.price}</p> */}
-        <div onClick={() => cart.removeItemFromCart(item.id)}>
-          <RxMinusCircled />
-        </div>
-        <p className="cart-item__quantity">{item.quantity}</p>
+        <div className="cart-item__main-container">
+          <div className="cart-item__name-container">
+            <h4 className="cart-item__name">{item.name}</h4>
+          </div>
+          <div className="cart-item__actions">
+            <div
+              className="cart-item__minus"
+              onClick={() => cart.removeItemFromCart(item.id)}
+            >
+              <RxMinusCircled />
+            </div>
+            <p className="cart-item__quantity">{item.quantity}</p>
 
-        <div onClick={() => cart.addItemToCart(item.id)}>
-          <RxPlusCircled />
-        </div>
+            <div
+              className="cart-item__plus"
+              onClick={() => cart.addItemToCart(item.id)}
+            >
+              <RxPlusCircled />
+            </div>
 
-        <div onClick={() => cart.removeAllFromCart(item.id)}>
-          <RxTrash />
+            <div
+              className="cart-item__bin"
+              onClick={() => cart.removeAllFromCart(item.id)}
+            >
+              <RxTrash />
+            </div>
+          </div>
         </div>
       </article>
     </>

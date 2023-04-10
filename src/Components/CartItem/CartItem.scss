@@ -1,13 +1,54 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
 .cart-item {
-    display: flex;
+    font-family: "Open Sans";
+    // display: flex;
     justify-content: space-around;
-    align-items: baseline;
+    // align-items: baseline;
+    &__main-container {
+        display: flex;
+        justify-content: space-around;
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+       
+    }
+    &__name-container{
+        display: flex;
+    }
     &__name {
         margin: 0;
-        font-size: 1.4rem;
+        font-size: 1.7rem;
+    }
+    &__actions {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
     }
     &__quantity {
-        font-size: 1.3rem;
+        font-size: 1.7rem;
         font-weight: bold;
+    }
+    &__plus {
+        &:hover {
+            @include cart-hover;
+            
+            color: green;
+           
+        }
+        
+    }
+    &__minus {
+        &:hover {
+            @include cart-hover;
+            
+            
+        }
+    }
+    &__bin {
+        &:hover {
+            @include cart-hover;
+            
+        }
     }
 }

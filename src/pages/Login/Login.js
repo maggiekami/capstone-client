@@ -52,7 +52,7 @@ const LoginForm = () => {
     <form onSubmit={handleSubmit} onBlur={isValid}>
       <section className="form__title-wrapper">
         <div className="form__section-container form__section-container--title-btn">
-          <h2 className="form__title">Create account</h2>
+          <h2 className="form__title">Sign in</h2>
         </div>
       </section>
       <section className="form__input-container">

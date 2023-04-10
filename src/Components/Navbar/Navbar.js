@@ -36,6 +36,10 @@ const Navbar = () => {
     setShowModal(false);
     // navigate("/");
   };
+  const handleCheckoutClick = (e) => {
+    setShowModal(false);
+    navigate("/order");
+  };
 
   const handleClick = (e) => {
     setShowModal(true);
@@ -79,18 +83,26 @@ const Navbar = () => {
         {productsCount > 0 ? (
           <>
             <Cart />
-            <button
-              className="header__back-btn"
-              onClick={handleCloseModalClick}
-            >
-              Back
-            </button>
+            <div className="header__btn-container">
+              <button
+                className="header__back-button"
+                onClick={handleCloseModalClick}
+              >
+                Back
+              </button>
+              <button
+                className="header__back-button"
+                onClick={handleCheckoutClick}
+              >
+                Checkout
+              </button>
+            </div>
           </>
         ) : (
           <>
             <h1>There are no items in your bag</h1>{" "}
             <button
-              className="header__back-btn"
+              className="header__back-button"
               onClick={handleCloseModalClick}
             >
               Back
