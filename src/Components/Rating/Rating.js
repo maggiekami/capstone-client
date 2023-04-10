@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./Rating.scss";
 
 const StarRating = ({ productId }) => {
   const [rating, setRating] = useState(0);
@@ -23,8 +24,7 @@ const StarRating = ({ productId }) => {
         const ratingValue = i + 1;
         return (
           <button
-            // className="rating"
-            // {ratingValue <= rating ? "rating__yellow-star" : "rating"}
+            className={ratingValue <= rating ? "rating__yellow-star" : "rating"}
             key={ratingValue}
             onClick={() => handleClick(ratingValue)}
           >

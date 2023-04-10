@@ -1,6 +1,8 @@
 .rating {
     border: none;
+    font-size: 1.8rem;
  &__yellow-star {
-    color: yellow;
+    @extend .rating;
+    color: #eebc1d;
  }
 }
