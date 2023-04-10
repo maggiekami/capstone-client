@@ -3,7 +3,6 @@ import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Checkout.scss";
 import { CartContext } from "../../CartContext";
-import Cart from "../../components/Cart/Cart";
 
 const formatPrice = ({ amount, currency, quantity }) => {
   const numberFormat = new Intl.NumberFormat("en-US", {
@@ -32,14 +31,12 @@ const Checkout = () => {
 
   useEffect(() => {
     async function fetchConfig() {
-      // Fetch config from our backend.
       const { unitAmount, currency } = await fetch("/config").then((r) =>
         r.json()
       );
       setAmount(unitAmount);
       setCurrency(currency);
     }
-    // fetchConfig();
   }, []);
 
   const handleStripe = async (event) => {
@@ -68,7 +65,7 @@ const Checkout = () => {
       method="POST"
     >
       <section className="form__title-wrapper">
-        <div className="form__section-container form__section-container--title-btn">
+        <div className="form__section-container form__section-container--title">
           <h2 className="form__title">Checkout securely</h2>
         </div>
       </section>

@@ -1,10 +1,8 @@
 @use "../../styles/partials/variables" as *;
 
-
 .hero {
   font-family: "Sacramento", sans-serif;
   height: 70vh;
-  background:linear-gradient(rgba(33,33,33,0.522), rgba(33,33,33,0.522));
   background-image: url("../../assets/images/heroImg.jpg");
   background-position: center;
   background-size: cover;
@@ -12,17 +10,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
- &__container {
-  color: white;
+  &__container {
+    color: $primary-colour-1;
+  }
 
- }
- &__text {
-  // font-size:4rem;
- }
-
- &__heading {
-  font-size:4rem;
- }
-
+  &__heading {
+    font-size: 4rem;
+  }
 }
-        

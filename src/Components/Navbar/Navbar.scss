@@ -2,56 +2,41 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/forms" as *;
 
-
 .header {
-  // font-family: "Sacramento", sans-serif;
-
-
   &__section {
-    font-family: 'Sacramento', sans-serif;
+    font-family: "Sacramento", sans-serif;
 
     position: fixed;
     top: 0;
-    display:flex;
+    display: flex;
     align-items: center;
-    justify-content:space-between;
-    background:transparent;
+    justify-content: space-between;
+    background: transparent;
     width: 100%;
-    // padding: 1rem;
     z-index: 1000;
     color: $primary-colour-2;
   }
 
   &__section-active {
-    // background: #2b0001;
-    background: #450002;
-    // box-shadow:
-  }
-
-
-
-  &__logo-div {
-    align-items: center;
-    justify-content: center;
+    background: $primary-colour-3;
+    padding: 1rem 0;
   }
 
   &__heading {
     font-size: 2.5rem;
-    color: white;
+    color: $primary-colour-1;
     display: flex;
     align-items: center;
     padding-left: 0.7rem;
-    
   }
   &__icon {
     font-size: 4rem;
     margin: 0.5rem;
-    cursor:pointer;
+    cursor: pointer;
     &--left {
       font-size: 2.6rem;
       margin-right: 2rem;
       margin-bottom: 1rem;
-      // margin-top: 0.5rem;
     }
     &--right {
       font-size: 2.4rem;
@@ -63,39 +48,39 @@
     }
   }
   &__cart-quantity {
-  position: absolute;
-  top: 28px;
-  right: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 23px;
-  height: 23px;
-  border-radius: 50%;
-  background-color: $supporting-colour-2;
-  color: $primary-colour-1;
-  font-size: 1.5rem;
-  // font-weight: 700;
-  
+    position: absolute;
+    top: 2.8rem;
+    right: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: $supporting-colour-2;
+    color: $primary-colour-1;
+    font-size: 1.8rem;
+    padding: 1.4rem;
+    @include mobile-l {
+      right: 3.5rem;
+
+    }
+    @include tablet {
+      right: 0.4rem;
+    }
   }
   &__navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 30%;
-    // position: absolute;
     height: max-content;
     padding: 1rem 0;
     color: $primary-colour-1;
-    // width: 100em;
-    // top: 0;
-    // left: 0;
     @include tablet {
       justify-content: flex-end;
       padding-right: 2rem;
     }
-    
-    
   }
   &__list {
     margin: 0;
@@ -103,69 +88,51 @@
     display: flex;
     align-items: center;
     list-style-type: none;
-
-
-    
   }
 
   &__nav-item {
-    // position: relative;
     display: flex;
     align-items: center;
-
   }
 
-
-
-
-
-
-    &__cart-modal {
-      outline: none;
-        // @include btn;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 80%;
-        height: auto;
-        max-width: 40rem;
-        box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.5);
-        border-radius: 0.5rem;
-        text-align: center;
-        z-index: 20;
-        opacity: 1;
-        // border: 1.5px solid #ddd7da;
-        // background-color: grey;
-        background-color: rgb(218, 204, 204, 0.9);
-
-    
-      }
-      &__overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgb(218, 204, 204, 0.7);
-        z-index: 10;
-        
-      }
-      &__btn-container {
-        display: flex;
-        justify-content: center;
-          padding: 2rem 0;
-          @include tablet {
-            margin-left: auto;
-          
-        }
-      }
-      &__back-button {
-        @include button;
-        font-family: "Open Sans";
-        background-color: rgba(218, 204, 204, 0.5);
-        border: 2px solid rgba(158, 156, 156, 1);
-        box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.5);
-        
-      }
+  &__cart-modal {
+    outline: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: auto;
+    max-width: 40rem;
+    background-color: rgb(218, 204, 204, 0.9);
+    box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
+    text-align: center;
+    z-index: 20;
+    opacity: 1;
+  }
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(218, 204, 204, 0.7);
+    z-index: 10;
+  }
+  &__btn-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+    @include tablet {
+      margin-left: auto;
+    }
+  }
+  &__back-button {
+    @include button;
+    font-family: "Open Sans";
+    background-color: rgba(218, 204, 204, 0.5);
+    border: 2px solid rgba(158, 156, 156, 1);
+    box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.5);
+  }
 }

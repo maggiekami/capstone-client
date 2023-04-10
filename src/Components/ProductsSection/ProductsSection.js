@@ -1,10 +1,7 @@
 import "./ProductsSection.scss";
 import { CartContext } from "../../CartContext";
 import { useContext } from "react";
-import { BsArrowLeftShort } from "react-icons/bs";
-import { BsArrowRightShort } from "react-icons/bs";
-import pic from "../../assets/images/heroImg.jpg";
-import ProductCard from "../ProductCard/ProductCard";
+
 import StarRating from "../Rating/Rating";
 import { RxPlusCircled } from "react-icons/rx";
 import { RxMinusCircled } from "react-icons/rx";
@@ -69,9 +66,7 @@ const ProductsSection = ({ product }) => {
             </div>
           </div>
         </div>
-        {/* </div> */}
       </section>
-      {/* </div> */}
     </>
   );
 };

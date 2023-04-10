@@ -1,20 +1,10 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
 import { CartContext } from "../../CartContext";
 import CartItem from "../CartItem/CartItem";
 import "./Cart.scss";
 
 const Cart = () => {
-  const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false);
-
   const cart = useContext(CartContext);
-
-  // const handleClick = (e) => {
-  //   setShowModal(false);
-  //   navigate("/order");
-  // };
-
   return (
     <section className="cart">
       <header className="cart__heading-container">
@@ -25,9 +15,7 @@ const Cart = () => {
           return <CartItem key={item.id} item={item} />;
         })}
       </div>
-
       <footer className="cart__footer">
-        {/* <hr /> */}
         <div className="cart__total-container">
           <h4 className="cart__total">
             Total:{" "}
@@ -36,11 +24,6 @@ const Cart = () => {
             </span>
           </h4>
         </div>
-        {/* <button onClick={handleCloseModalClick}>Cancel</button> */}
-
-        {/* <button className="cart__button" onClick={handleClick}>
-          Go to checkout
-        </button> */}
       </footer>
     </section>
   );

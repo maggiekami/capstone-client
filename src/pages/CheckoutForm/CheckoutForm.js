@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { CartContext } from "../../CartContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Loading } from "react-loading-dot";
+
 import "./CheckoutForm.scss";
 import * as yup from "yup";
 
@@ -20,7 +22,6 @@ const CheckoutForm = () => {
     fName: "",
     lName: "",
     address: "",
-    // total: "",
   };
 
   const [formFields, setFormFields] = useState(initialValues);
@@ -58,7 +59,6 @@ const CheckoutForm = () => {
     isValid();
 
     const newOrder = {
-      // address: formFields.address,
       fName: formFields.fName,
       lName: formFields.lName,
       address: formFields.address,
@@ -68,8 +68,6 @@ const CheckoutForm = () => {
     try {
       setIsLoading(true);
       const { data } = await axios.post(`${URL}/order`, newOrder);
-      // console.log(newOrder);
-      // console.log(data);
       navigate("/stripe");
     } catch (error) {
       setIsLoading(false);
@@ -77,13 +75,13 @@ const CheckoutForm = () => {
     }
   };
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   return (
     <form onSubmit={handleSubmit} onBlur={isValid} className="form">
       <section className="form__title-wrapper">
-        <div className="form__section-container form__section-container--title-btn">
+        <div className="form__section-container form__section-container--title">
           <h2 className="form__title">Your order: £ {cart.getTotal()}</h2>
         </div>
       </section>
@@ -167,118 +165,9 @@ const CheckoutForm = () => {
             <span>All fields are required</span>
           </div>
         )}
-        {/* {error && (
-          <div className="form__error-all">
-            <span>All fields are required</span>
-          </div>
-        )} */}
       </section>
     </form>
   );
-
-  // ---------------
-  //   <div className="checkout">
-  //     <h2>Checkout</h2>
-  //     <form
-  //       className="checkout__form"
-  //       onSubmit={handleSubmit}
-  //       //   onBlur={isValid}
-  //     >
-  //       <div className="checkout-container">
-  //         <label htmlFor="address">Address</label>
-  //         <input
-  //           type="text"
-  //           name="address"
-  //           // className={
-  //           //     error.email
-  //           //       ? "form__text-input form__text-input-error"
-  //           //       : "form__text-input"
-  //           //   }
-  //           id="address"
-  //           onChange={handleChange}
-  //           value={formFields.email}
-  //           placeholder="Email"
-  //         />
-  //         {/* {error.email && (
-  //           <span className="form__error">
-  //             Invalid email format (ex. 'user@example.com')
-  //           </span>
-  //         )} */}
-  //       </div>
-  //       <div className="checkout-container">
-  //         <label htmlFor="fName">First Name</label>
-  //         <input
-  //           type="text"
-  //           name="fName"
-  //           // className={
-  //           //     error.fName
-  //           //       ? "form__text-input form__text-input-error"
-  //           //       : "form__text-input"
-  //           //   }
-  //           id="fName"
-  //           value={formFields.fName}
-  //           onChange={handleChange}
-  //           placeholder="First name"
-  //         />
-  //         {/* {error.fName && (
-  //           <span className="form__error">This field is required</span>
-  //         )} */}
-  //       </div>
-  //       <div className="checkout-container">
-  //         <label htmlFor="lName">Last Name</label>
-  //         <input
-  //           type="text"
-  //           name="lName"
-  //           // className={
-  //           //     error.lName
-  //           //       ? "form__text-input form__text-input-error"
-  //           //       : "form__text-input"
-  //           //   }
-  //           id="lName"
-  //           value={formFields.lName}
-  //           onChange={handleChange}
-  //           placeholder="Last name"
-  //         />
-  //         {/* {error.lName && (
-  //           <span className="form__error">This field is required</span>
-  //         )} */}
-  //       </div>
-  //       <div className="checkout-container">
-  //         <label htmlFor="total">Total</label>
-  //         <input
-  //           type="text"
-  //           name="total"
-  //           onChange={handleChange}
-  //           // className={
-  //           //     error.address
-  //           //       ? "form__text-input form__text-input-error"
-  //           //       : "form__text-input"
-  //           //   }
-  //           id="total"
-  //           value={cart.getTotal()}
-  //         />
-  //       </div>
-  //       <div className="checkout-container">
-  //         <button
-  //           type="submit"
-  //           //   disabled={!isFormValid}
-  //         >
-  //           Checkout
-  //         </button>
-  //         {/* <button
-  //           type="button"
-  //           onClick={handleStripe}
-  //           //   disabled={!isFormValid}
-  //         >
-  //           Stripe
-  //         </button> */}
-  //         {/* {!isFormValid && (
-  //           <span className="form__error">All fields are required</span>
-  //         )} */}
-  //       </div>
-  //     </form>
-  //   </div>
-  // );
 };
 
 export default CheckoutForm;

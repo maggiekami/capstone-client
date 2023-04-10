@@ -1,17 +1,13 @@
 import "./Navbar.scss";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import icon from "../../assets/images/knitting.png";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { GiSewingNeedle } from "react-icons/gi";
-import { BiUserCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
-
-// import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { CartContext } from "../../CartContext";
 import Modal from "react-modal";
 import Cart from "../Cart/Cart";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { GiSewingNeedle } from "react-icons/gi";
+import { BiUserCircle } from "react-icons/bi";
 
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
@@ -35,7 +31,6 @@ const Navbar = () => {
 
   const handleCloseModalClick = (e) => {
     setShowModal(false);
-    // navigate("/");
   };
   const handleCheckoutClick = (e) => {
     setShowModal(false);

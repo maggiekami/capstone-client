@@ -1,13 +1,12 @@
 @use "../../styles/partials/variables" as *;
 
-
 .rating {
-    border: none;
-    font-size: 1.8rem;
-   background-color: $background-colour-2;
+  border: none;
+  font-size: 1.8rem;
+  background-color: $background-colour-2;
 
-    color: $supporting-colour-2;
- &__yellow-star {
+  color: $supporting-colour-3;
+  &__yellow-star {
     @extend .rating;
- }
+  }
 }

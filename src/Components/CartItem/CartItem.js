@@ -5,12 +5,8 @@ import { RxPlusCircled } from "react-icons/rx";
 import { RxMinusCircled } from "react-icons/rx";
 import { RxTrash } from "react-icons/rx";
 
-// import { getItemDetails } from "../../pages/Products/Products";
-
 const CartItem = ({ item }) => {
   const cart = useContext(CartContext);
-
-  const price = cart.getTotal();
 
   return (
     <>

@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import Hero from "../../components/Hero/Hero";
 import axios from "axios";
 import { Loading } from "react-loading-dot";
 import "./ProductsMain.scss";
@@ -25,8 +23,7 @@ const ProductsMain = () => {
   }, []);
 
   if (!products) {
-    return <p>Loading...</p>;
-    // return <Loading />;
+    return <Loading />;
   }
 
   return (

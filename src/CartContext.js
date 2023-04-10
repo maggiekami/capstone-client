@@ -35,7 +35,6 @@ export function CartProvider({ children }) {
       );
 
       return response.data;
-      console.log("fetch context working");
     } catch (error) {
       console.log(`Error fetching item data for ID ${productId}:`);
     }
@@ -43,8 +42,6 @@ export function CartProvider({ children }) {
 
   const getItemQuantity = (id) => {
     const quantity = cartItems.find((item) => item.id === id)?.quantity;
-
-    // console.log(quantity);
 
     if (quantity === undefined) {
       return 0;
@@ -98,17 +95,6 @@ export function CartProvider({ children }) {
     }
   };
 
-  // nie wiadomo czy tak ta funckja ma dzialac bo skad ma byc price w cartitems,
-  //  ale musi tu byc narazie i zmieniona w gettotal bo wyskakuje blad
-
-  // const getCartItemDetails = (id) => {
-  //   let itemDetails = cartItems.find((item) => item.id === id);
-  //   if (itemDetails === undefined) {
-  //     return undefined;
-  //   }
-  //   return itemDetails;
-  // };
-
   const getTotal = () => {
     let total = 0;
 
@@ -126,7 +112,6 @@ export function CartProvider({ children }) {
     removeItemFromCart,
     removeAllFromCart,
     getTotal,
-    // fetchItemData,
   };
 
   return (

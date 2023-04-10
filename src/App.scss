@@ -1,79 +1,11 @@
+@use "../src/styles/partials/variables" as *;
+@use "../src/styles/partials/mixins" as *;
+@use "../src/styles/partials/resets" as *;
+@use "../src/styles/partials/forms" as *;
 
-  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Sacramento&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 
-
-*{
-    // font-family: "Sacramento", sans-serif;
-    // font-family: 'Open Sans', sans-serif;
-    // transition: .3s ease;
-}
-
-a {
-    text-decoration: none;
-}
-
-li{
-    list-style: none;
-}
-
-.section{
-    padding: 4rem 0 2rem;
-}
-
-.container{
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-}
-
-// .icon {
-//     font-size: 2rem;
-//     cursor:pointer;
-// }
-
-// .flex {
-//     display: flex;
-//     align-items: center;
-// }
-
-.grid {
-    display: grid;
-    align-items: center;
-}
-
-.btn {
-    padding: 0.4rem 1.5rem;
-    border: none;
-    outline: none;
-    border-radius: 3rem;
-    cursor: pointer;
-}
-
-// .btn a {
-    
-// }
-
-.secIntro{
-    max-width: 70%;
-    text-align: center;
-    margin: 0 auto 2rem;
-}
-
-.secIntro .secTitle {
-    line-height: 1.5rem;
-    padding-bottom: 0.5rem;
-}
-
-.secIntro {
-    font-size: 1.3rem;
-    // color: ;
-    // font-weight: ;
-}
-
-img {
-    width: 100%;
-    height: auto;
-}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 
 
 

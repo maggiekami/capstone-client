@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+RENEE CRAFTS store website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Link to back-end repo: git@github.com:maggiekami/capstone-server.git
 
-## Available Scripts
+Description
 
-In the project directory, you can run:
+An online store to allow customers who are interested in purchasing handcrafted items made using crochet from small individual suppliers.
 
-### `npm start`
+It is usually difficult to find quality and handcrafted products made by individuals and small businesses at a reasonable price. The aim is to bring these items into a single store that allows customers to purchase with an easy to use checkout process.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The customers are people that have interests in finding unique items as a gift to a friend, themselves or their home.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Features
 
-### `npm test`
+- Product Catalog: Display a list of products with relevant information such as images, price, description, rating.
+- Shopping Cart: Allow users to add products to their shopping cart, view the cart, and modify the quantity or remove items as needed
+- User account registration
+- Order placement using database
+- Checkout using Stripe
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Tech Stack
 
-### `npm run build`
+Front-end:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+- Sass
+- Axios
+- Yup
+- React-modal
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Back-end:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Node.js
+- Express
+- Knex
+- MySQL2
+- Stripe
+- BCrypt
 
-### `npm run eject`
+Environment dependency:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Front-end:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Create a .env file and include:
+REACT_APP_BACKEND_URL: example = http://localhost:8080
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Back-end:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Create a .env file and include:
+PORT: example = 8080
 
-## Learn More
+Installation
+Clone
+Clone front-end repo locally:
+git clone git@github.com:maggiekami/capstone-client.git
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Clone back-end repo locally:
+git clone git@github.com:maggiekami/capstone-server.git
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Setup:
 
-### Code Splitting
+Open the project folder and install dependencies
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Run:
 
-### Analyzing the Bundle Size
+Run react app locally
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Run server locally.
+npm run dev

@@ -1,4 +1,4 @@
-@use "./resets";
+@use "./resets" as *;
 @use "./variables" as *;
 @use "./mixins" as *;
 
@@ -9,12 +9,16 @@
   font-size: 2.2rem;
   border-radius: 2px;
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-  background-color: $primary-colour-3;
+  background-color: $primary-colour-1;
   @include tablet-l {
     width: 75%;
+    margin: 10rem auto 16rem auto;
+
   }
   @include desktop-sm {
     width: 70%;
+    margin: 15rem auto 20rem auto;
+
   }
   @include desktop {
     max-width: $desktop-breakpoint;
@@ -26,8 +30,14 @@
   }
 
   &__title {
-    font-size: 2.4rem;
+    font-size: 3rem;
     width: 100%;
+    @include tablet {
+      font-size: 3.3rem;
+    }
+    @include desktop{
+      font-size: 3.6rem;
+    }
   }
 
   &__input-container {
@@ -48,7 +58,7 @@
         justify-content: flex-end;
       }
     }
-    &--title-btn {
+    &--title{
       display: flex;
       align-items: flex-start;
       margin: 4rem auto;
@@ -60,21 +70,29 @@
     @include tablet {
       margin-bottom: 2rem;
     }
-
-    // &:last-child {
-    //   @include tablet {
-    //     border-left: 1px solid $secondary-colour-2;
-    //   }
-    // }
   }
   &__section-title {
     margin: 2rem 0;
+    font-size: 2.2rem;
+    @include tablet{
+      font-size: 2.5rem;
+
+    }
+    @include desktop {
+      font-size: 2.8rem;
+    }
   }
 
   &__label {
+    font-size: 2rem;
     display: block;
     margin: 2rem 0 0.5rem 0;
-    font-weight: $demi;
+    @include tablet {
+      font-size: 2.3rem;
+    }
+    @include desktop {
+      font-size: 2.6rem;
+    }
   }
 
   &__text-input {
@@ -84,7 +102,6 @@
     border: 1px solid $secondary-colour-2;
     color: $secondary-colour-2;
     font-size: 1.6rem;
-    // font-family: "Titillium Web", sans-serif;
     font-family: inherit;
 
     &:focus {
@@ -93,38 +110,11 @@
       border: 1px solid black;
       color: black;
     }
-
-    // &:last-child {
-    //   margin-bottom: 2rem;
-    //   @include tablet {
-    //     margin-bottom: 0;
-    //   }
-    // }
   }
   &__text-input-error {
     @extend .form__text-input;
-    border: 1px solid red;
+    border: 1px solid $supporting-colour-2;
   }
-
-  // &__select {
-  //   border-radius: 2rem;
-  //   width: 100%;
-  //   padding: 1rem;
-  //   margin-bottom: 2rem;
-  //   border: 1px solid $secondary-colour-2;
-  //   color: $secondary-colour-2;
-  //   appearance: none;
-  //   // background-image: url("../../assets/Icons/arrow_drop_down-24px.svg");
-  //   background-repeat: no-repeat;
-  //   background-position-x: 95%;
-  //   background-position-y: 50%;
-  //   font-family: "Titillium Web", sans-serif;
-  //   &:focus {
-  //     outline: none;
-  //     border: 1px solid $primary-colour-2;
-  //     color: $primary-colour-1;
-  //   }
-  // }
 
   &__actions {
     padding: 2rem 0;
@@ -132,74 +122,40 @@
       margin-left: auto;
     }
   }
-  
+
   &__btn {
+    @include button;
     width: 45%;
-    border-radius: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 3.6rem;
-    font-size: 1.6rem;
-    line-height: 20px;
-    border: none;
-    cursor: pointer;
-    // font-family: "Titillium Web", sans-serif;
+    font-size: 2rem;
     font-family: inherit;
     @include tablet {
       width: 20%;
       margin-left: 2rem;
-  };
-    
-    &--submit {
-      background-color: $primary-colour-2;
-      color: $primary-colour-3;
-      &:hover {
-        background-color: $primary-colour-1;
-      }
-    }
-
-    &--cancel {
-      background-color: $primary-colour-3;
-      color: $secondary-colour-1;
-      border: 1px solid $secondary-colour-1;
-      &:hover {
-        border: 1px solid $primary-colour-2;
-        color: $primary-colour-2;
-      }
+      font-size: 2.3rem;
     }
   }
   &__stripe-connect {
-    background: #635bff;
-    // display: inline-block;
-    // height: 38px;
-    // text-decoration: none;
-    // width: 180px;
-
+    background: $supporting-colour-4;
     border-radius: 4px;
-    width: 13rem;
-   
+    width: 14rem;
+
     &:hover {
-      background: #7a73ff;
+      background: $supporting-colour-4;
+      cursor:pointer;
     }
-  
   }
 
   &__stripe-txt {
-    color: #ffffff;
+    color: $primary-colour-1;
     display: block;
-    font-family: sohne-var, "Helvetica Neue", Arial, sans-serif;
+    font-family: "Helvetica Neue", Arial, sans-serif;
     font-size: 1.5rem;
-    font-weight: 400;
     line-height: 1.4rem;
     padding: 1.1rem 0.8rem;
-    // position: relative;
-    // text-align: left;
-    
   }
   &__stripe-name {
     font-weight: bold;
-    color: white;
+    color: $primary-colour-1;
   }
 
   &__error {
@@ -216,7 +172,7 @@
     }
   }
   &__error-all {
-    color: red;
+    color: $supporting-colour-2;
     text-align: center;
     margin-top: 0.5rem;
   }

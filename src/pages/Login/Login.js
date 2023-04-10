@@ -32,7 +32,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // isValid();
+    isValid();
 
     const user = {
       email: formFields.email,
@@ -51,7 +51,7 @@ const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit} onBlur={isValid}>
       <section className="form__title-wrapper">
-        <div className="form__section-container form__section-container--title-btn">
+        <div className="form__section-container form__section-container--title">
           <h2 className="form__title">Sign in</h2>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Register.scss";
+import { Loading } from "react-loading-dot";
 import axios from "axios";
 import * as yup from "yup";
 
@@ -72,32 +73,26 @@ const RegistrationForm = () => {
       fName: formFields.fName,
       lName: formFields.lName,
       password: formFields.password,
-      //   passwordConfirmation: formFields.passwordConfirmation,
     };
 
     try {
       setIsLoading(true);
       const { data } = await axios.post(`${URL}/auth/register`, newUser);
-      console.log(newUser);
-      console.log(data);
       navigate("/login");
     } catch (error) {
       setIsLoading(false);
       setError(error.message);
-      console.log("wrong on client");
-      console.log(error.message);
     }
   };
 
-  //     alert("Registration successful.");
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   return (
     <form onSubmit={handleSubmit} onBlur={isValid}>
       <section className="form__title-wrapper">
-        <div className="form__section-container form__section-container--title-btn">
+        <div className="form__section-container form__section-container--title">
           <h2 className="form__title">Create account</h2>
         </div>
       </section>
@@ -226,115 +221,5 @@ const RegistrationForm = () => {
     </form>
   );
 };
-
-{
-  /* <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            // className={
-            //     error.email
-            //       ? "form__text-input form__text-input-error"
-            //       : "form__text-input"
-            //   }
-            id="email"
-            onChange={handleChange}
-            value={formFields.email}
-            placeholder="Email"
-          />
-          {error.email && (
-            <span className="form__error">
-              Invalid email format (ex. 'user@example.com')
-            </span>
-          )}
-        </div>
-        <div>
-          <label htmlFor="fName">First Name</label>
-          <input
-            type="text"
-            name="fName"
-            // className={
-            //     error.fName
-            //       ? "form__text-input form__text-input-error"
-            //       : "form__text-input"
-            //   }
-            id="fName"
-            value={formFields.fName}
-            onChange={handleChange}
-            placeholder="First name"
-          />
-          {error.fName && (
-            <span className="form__error">This field is required</span>
-          )}
-        </div>
-        <div>
-          <label htmlFor="lName">Last Name</label>
-          <input
-            type="text"
-            name="lName"
-            // className={
-            //     error.lName
-            //       ? "form__text-input form__text-input-error"
-            //       : "form__text-input"
-            //   }
-            id="lName"
-            value={formFields.lName}
-            onChange={handleChange}
-            placeholder="Last name"
-          />
-          {error.lName && (
-            <span className="form__error">This field is required</span>
-          )}
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            // className={
-            //     error.address
-            //       ? "form__text-input form__text-input-error"
-            //       : "form__text-input"
-            //   }
-            id="password"
-            value={formFields.password}
-            onChange={handleChange}
-            placeholder="Password"
-          />
-          {error.password && (
-            <span className="form__error">This field is required</span>
-          )}
-        </div>
-        <div>
-          <label htmlFor="passwordConfirmation">Confirm Password</label>
-          <input
-            type="password"
-            name="passwordConfirmation"
-            // className={
-            //     error.passwordConfirmation
-            //       ? "form__text-input form__text-input-error"
-            //       : "form__text-input"
-            //   }
-            id="passwordConfirmation"
-            value={formFields.passwordConfirmation}
-            onChange={handleChange}
-            placeholder="Confirm password"
-          />
-          {formFields.passwordConfirmation !== formFields.password && (
-            <span className="form__error">Passwords need to match</span>
-          )}
-        </div>
-        <div>
-          <button type="submit" disabled={!isFormValid}>
-            Register
-          </button>
-          {!isFormValid && (
-            <span className="form__error">All fields are required</span>
-          )}
-        </div>
-      </form>
-    </div> */
-}
 
 export default RegistrationForm;

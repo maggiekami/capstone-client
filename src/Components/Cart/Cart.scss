@@ -2,43 +2,29 @@
 @use "../../styles/partials/variables" as *;
 
 .cart {
-    font-family: "Open Sans";
-    background-color: rgb(218, 204, 204, 1);
+  font-family: "Open Sans";
+  background-color: $background-colour-3;
 
-    &__button {
-        @include button;
-    };
-    &__heading-container {
-        margin: 3rem auto 5rem;
+  &__button {
+    @include button;
+  }
 
-    }
-    &__heading {
+  &__heading-container {
+    margin: 3rem auto 5rem;
+  }
+  &__heading {
+    font-size: 2.8rem;
+  }
+  &__items-container {
+    margin: 1rem;
+    font-size: 2rem;
+  }
 
-        font-size: 2.8rem;
+  &__footer {
+    padding: 1rem;
+  }
 
-    }
-    &__items-container {
-        margin: 1rem;
-        font-size: 2rem;
-    }
-
-    &__footer {
-        padding: 1rem;
-    }
-    &__total-container {
-        
-    }
-    &__total {
-        font-size: 2rem;
-    }
-    
-    &__footer {
-        
-    }
-    &__footer {
-        
-    }
-    &__footer {
-        
-    }
+  &__total {
+    font-size: 2rem;
+  }
 }

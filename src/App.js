@@ -16,7 +16,6 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Products />} />
-            {/* <Route path="/:productId" element={<ProductDetails />} /> */}
             <Route path="/register" element={<RegistrationForm />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/order" element={<CheckoutForm />} />
