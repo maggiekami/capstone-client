@@ -1,22 +1,27 @@
 // // COLOURS
 
-$primary-colour-1: #13182c;
-$primary-colour-2: #ffffffff;
-$primary-colour-3: #ffffff;
+$primary-colour-1:#ffffff ;
+$primary-colour-2: #000000;
+$primary-colour-3: #450002;
 
 $secondary-colour-1: #5c667e;
 $secondary-colour-2: #bdc5d5;
 
-$background-colour-1: #232940;
-$background-colour-2: #f7f8f9;
 
-$supporting-colour-1: #158463;
-$supporting-colour-2: #c94515;
+$background-colour-1:#a99393;
+$background-colour-2: #e6e1e1;
+
+
+$supporting-colour-1: #1c690b;
+$supporting-colour-2: #aa1111;
+$supporting-colour-3: #eebc1d;
 
 // BREAKPOINTS
 
 $tablet-breakpoint: 768px;
-$desktop-slim-width: 1020px;
+$tablet-l-breakpoint: 900px;
+$desktop-sm-breakpoint: 1100px;
+// $desktop-slim-width: 1020px;
 $desktop-breakpoint: 1280px;
 
 //FONT-WEIGHTS

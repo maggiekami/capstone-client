@@ -29,19 +29,19 @@
   // &__icons-container {
   //   gap: 0.5rem;
   // }
-  &__icon {
-    font-size: 3rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    background-color: grey;
-    border-radius: 50%;
-    &:hover {
-      background-color: red;
-      column-rule: white;
-      color: white;
-      font-size: 4rem;
-    }
-  }
+  // &__icon {
+  //   font-size: 3rem;
+  //   cursor: pointer;
+  //   padding: 0.5rem;
+  //   background-color: grey;
+  //   border-radius: 50%;
+  //   &:hover {
+  //     background-color: red;
+  //     column-rule: white;
+  //     color: white;
+  //     font-size: 4rem;
+  //   }
+  // }
 
   &__main-container {
     display: flex;
@@ -52,7 +52,7 @@
   }
 
   &__main {
-    border: 3px solid purple;
+    // border: 3px solid purple;
     display: grid;
     align-items: center;
     // @media screen and (min-width: 556px) {
@@ -64,7 +64,10 @@
     max-width: 33rem;
     overflow: hidden;
     border-radius: 1rem;
-    box-shadow: 0 2px 8px 2px rgba(178,178,178,0.45);
+    box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.5);
+
+
+    // box-shadow: 0 2px 8px 2px rgba(178,178,178,0.45);
     // height: 50vh;
     &:hover 
         .products__overlay-info {
@@ -93,11 +96,12 @@
     padding: 0;
     justify-content: center;
     flex-direction: column;
-    background: linear-gradient(rgba(0, 0, 0, 0.846), rgba(0, 0, 0, 0.759));
+    // background: linear-gradient(rgba(0, 0, 0, 0.846), rgba(0, 0, 0, 0.759));
     // background: linear-gradient(rgba(65, 8, 8, 0.846), rgba(29, 3, 3, 0.759));
+    background: linear-gradient(rgba(65, 8, 8, 0.846), rgba(44, 4, 4, 0.759));
     bottom: 0;
     width: 100%;
-    height: 0.5rem;
+    height: 0;
     overflow: hidden;
     transition:all 0.3s ease;
     // &:hover {
@@ -119,23 +123,31 @@
   &__overlay-heading {
     color: white;
   }
-  &__overlay-icon {
-    position: absolute;
-    right: 1rem;
-    bottom: 1rem;
-    background: red;
-    color: white;
-    font-size: 2.5rem;
-    border-radius: 50%;
-    transition: 0.3s ease;
-    // &:hover {
-    //   // dodaj cos 1.00.40 minuta
-    // }
-  }
+  // &__overlay-icon {
+  //   position: absolute;
+  //   right: 1rem;
+  //   bottom: 1rem;
+  //   background: red;
+  //   color: white;
+  //   font-size: 2.5rem;
+  //   border-radius: 50%;
+  //   transition: 0.3s ease;
+  //   // &:hover {
+  //   //   // dodaj cos 1.00.40 minuta
+  //   // }
+  // }
   &__single-footer {
     padding: 1rem;
+    // / background-color:  rgba(192, 152, 141, 0.3);
+    background-color:  #ebe5d8;
+    background: #450002;
+    background: #e6e1e1;
+    
+    // background-color:  rgba(158, 156, 156, 0.3);
+
+
     // background-color: #faebd7;
-    background-color: #e8e3d5;
+    // background-color: #e8e3d5;
     
   &__upper-container {
     border: 3px solid green;
@@ -145,7 +157,7 @@
 
   }
   &__number {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     // width: 60%;
     // position: relative;
     // width: max-content;
@@ -160,7 +172,6 @@
     font-size: 1.5rem;
   }
   &__info-flex {
-    border: 3px solid blue;    
     display: flex;
    align-items: center;
    justify-content: space-between;

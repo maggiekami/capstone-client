@@ -19,7 +19,7 @@ const StarRating = ({ productId }) => {
   };
 
   return (
-    <div>
+    <div className="rating-container">
       {[...Array(5)].map((star, i) => {
         const ratingValue = i + 1;
         return (

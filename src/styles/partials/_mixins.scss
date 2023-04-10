@@ -8,13 +8,13 @@
   }
 
   @mixin tablet-l {
-    @media screen and (min-width: 900px) {
+    @media screen and (min-width: $tablet-l-breakpoint) {
       @content;
     }
   }
 
   @mixin desktop-sm {
-    @media screen and (min-width: 1100px) {
+    @media screen and (min-width: $desktop-sm-breakpoint) {
       @content;
     }
   }
@@ -27,7 +27,7 @@
 
   @mixin cart-hover {
     cursor: pointer;
-    color: red;
+    color: $supporting-colour-2;
   }
   
   @mixin button {
@@ -38,12 +38,10 @@
   align-items: center;
   height: 3.6rem;
   font-size: 1.6rem;
-  // line-height: 20px;
   border: none;
   cursor: pointer;
   padding: 1.3rem 1rem;
   margin: 0.5rem;
-  // font-family: "Titillium Web", sans-serif;
   font-family: inherit;
   @include tablet {
     width: 20%;

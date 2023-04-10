@@ -67,7 +67,7 @@ const Navbar = () => {
               </li>
               <li onClick={handleClick}>
                 <AiOutlineShoppingCart className="header__icon--right" />
-                {productsCount}
+                <span className="header__cart-quantity">{productsCount}</span>
               </li>
             </ul>
           </nav>

@@ -5,7 +5,7 @@ const Hero = () => {
       <section className="hero">
         <div className="hero__container">
           <div className="hero__text">
-            <h1 className="hero__heading">Renne Crafts</h1>
+            <h1 className="hero__heading">Renee Crafts</h1>
           </div>
         </div>
       </section>
