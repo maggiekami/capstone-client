@@ -6,33 +6,25 @@ import { BsArrowRightShort } from "react-icons/bs";
 import pic from "../../assets/images/heroImg.jpg";
 import ProductCard from "../ProductCard/ProductCard";
 import StarRating from "../Rating/Rating";
+import { RxPlusCircled } from "react-icons/rx";
+import { RxMinusCircled } from "react-icons/rx";
 
 const ProductsSection = ({ product }) => {
   const cart = useContext(CartContext);
   const productQuantity = cart.getItemQuantity(product.id);
   return (
     <>
-      {/* <div className="container"> */}
       <section className="products">
-        <div className="products__container">
-          {/* <div className="products__header-flex">
-            <div className="products__text">
-              <h2>Our products</h2>
-              <p>remove fsdfdsfdfdsf</p>
-            </div> */}
-          {/* <div className="products__icons-container">
-            <BsArrowLeftShort className="products__icon" />
-            <BsArrowRightShort className="products__icon" />
-          </div> */}
-        </div>
+        <div className="products__container"></div>
         <div className="products__main-container">
           <div className="products__main">
-            {/* {products.map((product) => {
-              return <ProductCard product={product} key={product.id} />;
-            })} */}
             <div className="products__single">
               <div className="products__img-container">
-                <img className="products__img" src={product.image} alt="knit" />
+                <img
+                  className="products__img"
+                  src={product.image}
+                  alt="product"
+                />
 
                 <div className="products__overlay-info">
                   <h3 className="products__overlay-heading">{product.name}</h3>
@@ -42,14 +34,45 @@ const ProductsSection = ({ product }) => {
                 </div>
               </div>
               <div className="products__single-footer">
-                <div className="products__number">{product.price}</div>
+                <div className="products__upper-container">
+                  <div className="products__flex">
+                    <span
+                      className="products__dot"
+                      onClick={() => cart.removeItemFromCart(product.id)}
+                    >
+                      <RxMinusCircled />
+                    </span>
+                    <span
+                      className="products__dot"
+                      onClick={() => cart.addItemToCart(product.id)}
+                    >
+                      <RxPlusCircled />
+                    </span>
+                  </div>
+                  <div className="products__number">
+                    {productQuantity > 0 ? (
+                      <span className="products__quantity-text">
+                        In your bag: {productQuantity}
+                      </span>
+                    ) : (
+                      <span className="products__quantity-text"></span>
+                    )}
+                  </div>
+                </div>
                 <div className="products__info-flex">
                   <h6 className="products__info-heading">
                     <StarRating />
                   </h6>
-                  <span className="products__flex">
-                    <span className="products__dot">dot icon</span>
-                  </span>
+                  <div className="products__number">£{product.price}</div>
+
+                  {/* <div className="products__flex">
+                    <span className="products__dot">
+                      <RxMinusCircled />
+                    </span>
+                    <span className="products__dot">
+                      <RxPlusCircled />
+                    </span>
+                  </div> */}
                 </div>
               </div>
             </div>

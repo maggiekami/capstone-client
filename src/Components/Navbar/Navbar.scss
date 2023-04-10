@@ -4,8 +4,12 @@
 
 
 .header {
+  // font-family: "Sacramento", sans-serif;
+
 
   &__section {
+    font-family: 'Sacramento', sans-serif;
+
     position: fixed;
     top: 0;
     display:flex;
@@ -19,7 +23,8 @@
   }
 
   &__section-active {
-    background: #2b0001;
+    // background: #2b0001;
+    background: #450002;
     // box-shadow:
   }
 
@@ -54,10 +59,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 40%;
+    width: 30%;
     // position: absolute;
     height: max-content;
-    padding: 1rem;
+    padding: 1rem 0;
     // width: 100em;
     // top: 0;
     // left: 0;

@@ -2,7 +2,8 @@
 // @use "./mixins" as *;
 
 .products {
-  border: 2px solid red;
+  font-family: 'Open Sans';
+  // border: 2px solid red;
   padding: 4rem 0 2rem;
   // padding-top: 15rem;
   padding-left: 1.5rem;
@@ -60,8 +61,7 @@
     // }
   }
   &__single {
-    max-width: 35rem;
-    border: 3px solid orange;
+    max-width: 33rem;
     overflow: hidden;
     border-radius: 1rem;
     box-shadow: 0 2px 8px 2px rgba(178,178,178,0.45);
@@ -89,7 +89,7 @@
     // border: 3px solid blue;
     position: absolute;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     padding: 0;
     justify-content: center;
     flex-direction: column;
@@ -110,9 +110,11 @@
     
   
   &__overlay-text {
+    margin-top: 1.8rem;
     color: white;
     opacity: 0.7;
     font-size: 1.8rem;
+    text-align: center;
   }
   &__overlay-heading {
     color: white;
@@ -132,21 +134,32 @@
   }
   &__single-footer {
     padding: 1rem;
-    border: 1px solid red;
+    border: 3px solid red;
     
+  &__upper-container {
+    border: 3px solid green;
+    display: flex;
+    justify-content: space-between;
+  }
 
   }
   &__number {
-    font-size: 2rem;
-    position: relative;
-    width: max-content;
-    &::after {
-      content: "";
-      position: absolute;
-      background: green;
-    }
+    font-size: 1.5rem;
+    // width: 60%;
+    // position: relative;
+    // width: max-content;
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   background: green;
+    // }
+  }
+
+  &__quantity-text {
+    font-size: 1.5rem;
   }
   &__info-flex {
+    border: 3px solid blue;    
     display: flex;
    align-items: center;
    justify-content: space-between;
@@ -157,12 +170,16 @@
   }
   &__flex {
     border: 1px solid pink;
-    align-items: flex-start;
-    transform: translateY(5px);
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2rem;
+    // width: 30%;
+    // align-items: flex-start;
+    // transform: translateY(5px);
 
 }
 
-// &__dot {
+&__dot {
+  margin: 0 0.5rem;
+}}
 
-// }}
-}

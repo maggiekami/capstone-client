@@ -2,6 +2,7 @@
 
 
 .hero {
+  font-family: "Sacramento", sans-serif;
   height: 70vh;
   background:linear-gradient(rgba(33,33,33,0.522), rgba(33,33,33,0.522));
   background-image: url("../../assets/images/heroImg.jpg");
@@ -16,6 +17,10 @@
 
  }
  &__text {
+  // font-size:4rem;
+ }
+
+ &__heading {
   font-size:4rem;
  }
 
