@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
 import { CartContext } from "../../CartContext";
+import Cart from "../../components/Cart/Cart";
 
 const formatPrice = ({ amount, currency, quantity }) => {
   const numberFormat = new Intl.NumberFormat("en-US", {

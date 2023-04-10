@@ -57,7 +57,7 @@ const Navbar = () => {
                 <BiUserCircle className="header__icon--left" />
               </li>
               <li onClick={handleClick}>
-                <AiOutlineShoppingCart className="header__icon--left" />
+                <AiOutlineShoppingCart className="header__icon--right" />
                 {productsCount}
               </li>
             </ul>

@@ -35,9 +35,10 @@ const ProductsSection = ({ product }) => {
                 <img className="products__img" src={product.image} alt="knit" />
 
                 <div className="products__overlay-info">
-                  <h3 className="products__heading">Some text</h3>
-                  <p className="products__overlay-text">lorem</p>
-                  <BsArrowRightShort className="products__overlay-icon" />
+                  <h3 className="products__overlay-heading">{product.name}</h3>
+                  <p className="products__overlay-text">
+                    {product.description}
+                  </p>
                 </div>
               </div>
               <div className="products__single-footer">

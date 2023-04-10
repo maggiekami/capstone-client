@@ -12,10 +12,11 @@
   align-items: center;
   justify-content: center;
  &__container {
-  border: 2pxm solid blue;
-  color: $primary-colour-2;
-  
+  color: white;
 
+ }
+ &__text {
+  font-size:4rem;
  }
 
 }
