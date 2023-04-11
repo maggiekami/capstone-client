@@ -1,5 +1,6 @@
-import Hero from "../../components/Hero/Hero";
-import ProductsMain from "../../components/ProductsMain/ProductsMain";
+import Hero from "../../Components/Hero/Hero";
+
+import ProductsMain from "../../Components/ProductsMain/ProductsMain";
 
 const Products = () => {
   return (

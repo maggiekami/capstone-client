@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Loading } from "react-loading-dot";
 import "./ProductsMain.scss";
-import ProductsSection from "../../components/ProductsSection/ProductsSection";
+import ProductsSection from "../../Components/ProductsSection/ProductsSection";
 
 const ProductsMain = () => {
   const API_BASE_URL = "http://localhost:8080";
