@@ -1,9 +1,9 @@
-#RENEE CRAFTS store website
+# RENEE CRAFTS store website
 
 Link to back-end repo:
 git@github.com:maggiekami/capstone-server.git
 
-##Description
+## Description
 
 An online store to allow customers who are interested in purchasing handcrafted items made using crochet from small individual suppliers.
 
@@ -11,7 +11,7 @@ It is usually difficult to find quality and handcrafted products made by individ
 
 The customers are people that have interests in finding unique items as a gift to a friend, themselves or their home.
 
-##Features
+## Features
 
 - Product Catalog: Display a list of products with relevant information such as images, price, description, rating.
 - Shopping Cart: Allow users to add products to their shopping cart, view the cart, and modify the quantity or remove items as needed
@@ -19,9 +19,9 @@ The customers are people that have interests in finding unique items as a gift t
 - Order placement using database
 - Checkout using Stripe
 
-##Tech Stack
+## Tech Stack
 
-###Front-end:
+### Front-end:
 
 - React
 - Sass
@@ -29,7 +29,7 @@ The customers are people that have interests in finding unique items as a gift t
 - Yup
 - React-modal
 
-###Back-end:
+### Back-end:
 
 - Node.js
 - Express
@@ -38,19 +38,19 @@ The customers are people that have interests in finding unique items as a gift t
 - Stripe
 - BCrypt
 
-##Environment dependency:
+## Environment dependency:
 
-###Front-end:
+### Front-end:
 
 Create a .env file and include:
 REACT_APP_BACKEND_URL: example = http://localhost:8080
 
-###Back-end:
+### Back-end:
 
 Create a .env file and include:
 PORT: example = 8080
 
-##Installation
+## Installation
 
 Clone front-end repo locally:
 git clone git@github.com:maggiekami/capstone-client.git
@@ -58,12 +58,12 @@ git clone git@github.com:maggiekami/capstone-client.git
 Clone back-end repo locally:
 git clone git@github.com:maggiekami/capstone-server.git
 
-##Setup:
+## Setup:
 
 Open the project folder and install dependencies
 npm install
 
-###Run:
+### Run:
 
 Run react app locally
 npm start
