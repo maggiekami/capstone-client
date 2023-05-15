@@ -61,8 +61,10 @@ npm install
 
 ### Run:
 
-> Run react app locally
+Run react app locally
+
 > `npm start`
 
-> Run server locally.
+Run server locally.
+
 > `npm run dev`
