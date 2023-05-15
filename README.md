@@ -6,8 +6,8 @@
 
 An online store to allow customers who are interested in purchasing handcrafted items made using crochet from an individual supplier.
 
-![Main](./src/assets/images/renne_crafts_main.png)
 ![Products](./src/assets/images/renee_crafts_products.png)
+![Basket](./src/assets/images/renee_crafts_basket.png)
 
 ## Features
 
