@@ -1,43 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Checkout.scss";
 import { CartContext } from "../../CartContext";
 
-const formatPrice = ({ amount, currency, quantity }) => {
-  const numberFormat = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency,
-    currencyDisplay: "symbol",
-  });
-  const parts = numberFormat.formatToParts(amount);
-  let zeroDecimalCurrency = true;
-  for (let part of parts) {
-    if (part.type === "decimal") {
-      zeroDecimalCurrency = false;
-    }
-  }
-  amount = zeroDecimalCurrency ? amount : amount / 100;
-  const total = (quantity * amount).toFixed(2);
-  return numberFormat.format(total);
-};
-
 const Checkout = () => {
-  const [quantity, setQuantity] = useState(1);
-  const [amount, setAmount] = useState(0);
-  const [currency, setCurrency] = useState("USD");
   const cart = useContext(CartContext);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    async function fetchConfig() {
-      const { unitAmount, currency } = await fetch("/config").then((r) =>
-        r.json()
-      );
-      setAmount(unitAmount);
-      setCurrency(currency);
-    }
-  }, []);
 
   const handleStripe = async (event) => {
     event.preventDefault();

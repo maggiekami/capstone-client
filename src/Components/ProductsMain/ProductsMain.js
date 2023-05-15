@@ -14,7 +14,6 @@ const ProductsMain = () => {
       try {
         const { data } = await axios.get(`${API_BASE_URL}/product`);
         setProducts(data);
-        console.log(data);
       } catch (err) {
         console.log(err);
       }
