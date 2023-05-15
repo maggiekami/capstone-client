@@ -6,6 +6,8 @@
 
 An online store to allow customers who are interested in purchasing handcrafted items made using crochet from an individual supplier.
 
+![Main](./src/assets/images/renne_crafts_main.png)
+
 ## Features
 
 - Product Catalog: Display a list of products with relevant information such as images, price, description, rating.
@@ -48,10 +50,10 @@ Create a .env file and include
 ## Installation
 
 Clone front-end repo locally
-`git clone git@github.com:maggiekami/capstone-client.git`
+`git clone https://github.com/maggiekami/capstone-client.git`
 
 Clone back-end repo locally
-`git clone git@github.com:maggiekami/capstone-server.git`
+`git clone https://github.com/maggiekami/capstone-server.git`
 
 ## Setup
 
