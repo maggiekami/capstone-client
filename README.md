@@ -1,7 +1,6 @@
-# RENEE CRAFTS store
+# RENEE CRAFTS
 
-Link to back-end repo:
-[Click here](git@github.com:maggiekami/capstone-server.git) to see the back-end repo.
+[Click here](https://github.com/maggiekami/capstone-server) to see the back-end repo.
 
 ## Description
 
@@ -17,7 +16,7 @@ An online store to allow customers who are interested in purchasing handcrafted 
 
 ## Tech Stack
 
-### Front-end:
+### Front-end
 
 - React
 - Sass
@@ -25,7 +24,7 @@ An online store to allow customers who are interested in purchasing handcrafted 
 - Yup
 - React-modal
 
-### Back-end:
+### Back-end
 
 - Node.js
 - Express
@@ -34,14 +33,14 @@ An online store to allow customers who are interested in purchasing handcrafted 
 - Stripe
 - BCrypt
 
-## Environment dependency:
+## Environment dependency
 
-### Front-end:
+### Front-end
 
 Create a .env file and include:
 REACT_APP_BACKEND_URL: example = http://localhost:8080
 
-### Back-end:
+### Back-end
 
 Create a .env file and include:
 PORT: example = 8080
@@ -49,22 +48,23 @@ PORT: example = 8080
 ## Installation
 
 Clone front-end repo locally:
-git clone git@github.com:maggiekami/capstone-client.git
+git clone
+git@github.com:maggiekami/capstone-client.git
 
 Clone back-end repo locally:
 git clone git@github.com:maggiekami/capstone-server.git
 
-## Setup:
+## Setup
 
 Open the project folder and install dependencies
-npm install
+`npm install`
 
 ### Run:
 
 Run react app locally
 
-> `npm start`
+`npm start`
 
-Run server locally.
+Run server locally
 
-> `npm run dev`
+`npm run dev`
