@@ -37,26 +37,26 @@ An online store to allow customers who are interested in purchasing handcrafted 
 
 ### Front-end
 
-Create a .env file and include:
-REACT_APP_BACKEND_URL: example = http://localhost:8080
+Create a .env file and include
+`REACT_APP_BACKEND_URL: example = http://localhost:8080`
 
 ### Back-end
 
-Create a .env file and include:
-PORT: example = 8080
+Create a .env file and include
+`PORT: example = 8080`
 
 ## Installation
 
-Clone front-end repo locally:
-git clone
-git@github.com:maggiekami/capstone-client.git
+Clone front-end repo locally
+`git clone git@github.com:maggiekami/capstone-client.git`
 
-Clone back-end repo locally:
-git clone git@github.com:maggiekami/capstone-server.git
+Clone back-end repo locally
+`git clone git@github.com:maggiekami/capstone-server.git`
 
 ## Setup
 
 Open the project folder and install dependencies
+
 `npm install`
 
 ### Run:
