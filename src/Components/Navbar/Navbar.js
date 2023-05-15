@@ -96,13 +96,17 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <h1>There are no items in your bag</h1>{" "}
-            <button
-              className="header__back-button"
-              onClick={handleCloseModalClick}
-            >
-              Back
-            </button>
+            <h1 className="header__cart-heading">
+              There are no items in your bag
+            </h1>{" "}
+            <div className="header__btn-container">
+              <button
+                className="header__back-button"
+                onClick={handleCloseModalClick}
+              >
+                Back
+              </button>
+            </div>
           </>
         )}
       </Modal>
