@@ -1,15 +1,11 @@
-# RENEE CRAFTS store website
+# RENEE CRAFTS store
 
 Link to back-end repo:
-git@github.com:maggiekami/capstone-server.git
+[Click here](git@github.com:maggiekami/capstone-server.git) to see the back-end repo.
 
 ## Description
 
-An online store to allow customers who are interested in purchasing handcrafted items made using crochet from small individual suppliers.
-
-It is usually difficult to find quality and handcrafted products made by individuals and small businesses at a reasonable price. The aim is to bring these items into a single store that allows customers to purchase with an easy to use checkout process.
-
-The customers are people that have interests in finding unique items as a gift to a friend, themselves or their home.
+An online store to allow customers who are interested in purchasing handcrafted items made using crochet from an individual supplier.
 
 ## Features
 
@@ -65,8 +61,8 @@ npm install
 
 ### Run:
 
-Run react app locally
-npm start
+> Run react app locally
+> `npm start`
 
-Run server locally.
-npm run dev
+> Run server locally.
+> `npm run dev`
