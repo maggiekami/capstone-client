@@ -22,7 +22,7 @@ export function CartProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    // Only update local storage IF the card has items
+    // Only update local storage if the cart has items
     if (cartItems.length !== 0) {
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
     }
@@ -33,7 +33,6 @@ export function CartProvider({ children }) {
       const response = await axios.get(
         `http://localhost:8080/product/${productId}`
       );
-
       return response.data;
     } catch (error) {
       console.log(`Error fetching item data for ID ${productId}:`);
