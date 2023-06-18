@@ -32,6 +32,15 @@ const ProductsSection = ({ product }) => {
               </div>
               <div className="products__single-footer">
                 <div className="products__upper-container">
+                  <div className="products__number">
+                    {productQuantity > 0 ? (
+                      <div className="products__quantity-text">
+                        In your bag: {productQuantity}
+                      </div>
+                    ) : (
+                      <div className="products__quantity-text"></div>
+                    )}
+                  </div>
                   <div className="products__flex">
                     <span
                       className="products__dot"
@@ -46,16 +55,8 @@ const ProductsSection = ({ product }) => {
                       <RxPlusCircled />
                     </span>
                   </div>
-                  <div className="products__number">
-                    {productQuantity > 0 ? (
-                      <span className="products__quantity-text">
-                        In your bag: {productQuantity}
-                      </span>
-                    ) : (
-                      <span className="products__quantity-text"></span>
-                    )}
-                  </div>
                 </div>
+
                 <div className="products__info-flex">
                   <h6 className="products__info-heading">
                     <StarRating productId={product.id} />

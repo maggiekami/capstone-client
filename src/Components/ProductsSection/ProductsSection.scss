@@ -73,11 +73,14 @@
     padding: 1rem;
     background-color: #e6e1e1;
 
-    &__upper-container {
-      display: flex;
-      justify-content: space-between;
-    }
+    
   }
+
+  &__upper-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
   &__number {
     font-size: 1.8rem;
   }
