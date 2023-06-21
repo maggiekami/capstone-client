@@ -31,7 +31,7 @@ export function CartProvider({ children }) {
   const fetchItemData = async (productId) => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/product/${productId}`
+        `https://renee-crafts-server-8898dc1bcd4a.herokuapp.com/product/${productId}`
       );
       return response.data;
     } catch (error) {

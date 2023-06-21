@@ -7,7 +7,7 @@ import { Loading } from "react-loading-dot";
 import "./CheckoutForm.scss";
 import * as yup from "yup";
 
-const URL = process.env.REACT_APP_BACKEND_URL;
+const URL = "https://renee-crafts-server-8898dc1bcd4a.herokuapp.com";
 
 const schema = yup.object().shape({
   fName: yup.string().required(),

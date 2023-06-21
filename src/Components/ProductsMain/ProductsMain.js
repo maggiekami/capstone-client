@@ -5,7 +5,7 @@ import "./ProductsMain.scss";
 import ProductsSection from "../../Components/ProductsSection/ProductsSection";
 
 const ProductsMain = () => {
-  const API_BASE_URL = "http://localhost:8080";
+  const API_BASE_URL = "https://renee-crafts-server-8898dc1bcd4a.herokuapp.com";
 
   const [products, setProducts] = useState(null);
 

@@ -15,7 +15,7 @@ const Checkout = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/create-checkout-session",
+        "https://renee-crafts-server-8898dc1bcd4a.herokuapp.com/create-checkout-session",
         {
           orderTotal: total,
         }
@@ -30,7 +30,7 @@ const Checkout = () => {
   return (
     <form
       onSubmit={handleStripe}
-      action="http://localhost:8080/create-checkout-session"
+      action="https://renee-crafts-server-8898dc1bcd4a.herokuapp.com/create-checkout-session"
       method="POST"
     >
       <section className="form__title-wrapper">
